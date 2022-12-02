@@ -9,22 +9,24 @@ import java.awt.event.KeyEvent;
 
 public class ProjectSnake extends JPanel implements ActionListener {
 
+
+final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
+    final ImageIcon snakeBody =img("/resources/snakeBody.png");
+    final ImageIcon snakeHead =img("/resources/snakeHead.png");
+    final ImageIcon fon =img("/resources/dashanew.png");
+    final ImageIcon snakeHeadRight =img("/resources/snakeHeadRight.png");
+    final ImageIcon snakeBodyRight =img("/resources/snakeBodyRight.png");
+    final ImageIcon snakeBodyLeft=img("/resources/snakeBodyLeft.png");
+    final ImageIcon snakeHeadLeft=img("/resources/snakeHeadLeft.png");
+    final ImageIcon snakeHeadDown=img("/resources/snakeHeadDown.png");
+    final ImageIcon snakeBodyDown=img("/resources/snakeBodyDown.png");
+
+
     public static JFrame jFrame;
     public static int HP = 3;
     public static final int SCALE = 32; // шкала пискселей, размер клетки
     public static final int WIDTH = 20; // ширина
     public static final int HEIGHT = 20;// высота
-
-    public Image apple = imageDownload("src/main/resources/SnakeImg/icons8-яблоко-48.png");
-    public Image fon = imageDownload("src/main/resources/SnakeImg/dashanew.png");
-    public Image snakeBody = imageDownload("src/main/resources/SnakeImg/snakeBody.png");
-    public Image snakeHead = imageDownload("src/main/resources/SnakeImg/snakeHead.png");
-    public Image snakeHeadRight = imageDownload("src/main/resources/SnakeImg/snakeHeadRight.png");
-    public Image snakeBodyRight = imageDownload("src/main/resources/SnakeImg/snakeBodyRight.png");
-    public Image snakeBodyLeft = imageDownload("src/main/resources/SnakeImg/snakeBodyLeft.png");
-    public Image snakeHeadLeft = imageDownload("src/main/resources/SnakeImg/snakeHeadLeft.png");
-    public Image snakeHeadDown = imageDownload("src/main/resources/SnakeImg/snakeHeadDown.png");
-    public Image snakeBodyDown = imageDownload("src/main/resources/SnakeImg/snakeBodyDown.png");
 
 
     public Snake snake = new Snake(5, 6, 5, 5);
@@ -61,12 +63,11 @@ public class ProjectSnake extends JPanel implements ActionListener {
         myButtonFrame.setVisible(true);
         myButtonFrame.setLocationRelativeTo(null);
         myButtonFrame.setResizable(false);
-
     }
 
     @Override
     public void paint(Graphics g) {
-        g.drawImage(fon, SCALE - 40, SCALE - 40, this);
+        g.drawImage(fon.getImage(), SCALE - 40, SCALE - 40, this);
 
 
         g.setColor(Color.black);
@@ -81,41 +82,41 @@ public class ProjectSnake extends JPanel implements ActionListener {
 
             if (snake.runBody == 1) {
                 repaint();
-                g.drawImage(snakeBodyRight, snake.snakeX[i] * SCALE, snake.snakeY[i] * SCALE,
+                g.drawImage(snakeBodyRight.getImage(), snake.snakeX[i] * SCALE, snake.snakeY[i] * SCALE,
                         SCALE, SCALE, this);
 
-                g.drawImage(snakeHeadRight, snake.snakeX[0] * SCALE, snake.snakeY[0] * SCALE,
+                g.drawImage(snakeHeadRight.getImage(), snake.snakeX[0] * SCALE, snake.snakeY[0] * SCALE,
                         SCALE, SCALE, this);
             }
             if (snake.runBody == 0) {
                 repaint();
-                g.drawImage(snakeBody, snake.snakeX[i] * SCALE, snake.snakeY[i] * SCALE,
+                g.drawImage(snakeBody.getImage(), snake.snakeX[i] * SCALE, snake.snakeY[i] * SCALE,
                         SCALE, SCALE, this);
 
-                g.drawImage(snakeHead, snake.snakeX[0] * SCALE, snake.snakeY[0] * SCALE,
+                g.drawImage(snakeHead.getImage(), snake.snakeX[0] * SCALE, snake.snakeY[0] * SCALE,
                         SCALE, SCALE, this);
             }
             if (snake.runBody == 2) {
                 repaint();
-                g.drawImage(snakeBodyDown, snake.snakeX[i] * SCALE, snake.snakeY[i] * SCALE,
+                g.drawImage(snakeBodyDown.getImage(), snake.snakeX[i] * SCALE, snake.snakeY[i] * SCALE,
                         SCALE, SCALE, this);
 
-                g.drawImage(snakeHeadDown, snake.snakeX[0] * SCALE, snake.snakeY[0] * SCALE,
+                g.drawImage(snakeHeadDown.getImage(), snake.snakeX[0] * SCALE, snake.snakeY[0] * SCALE,
                         SCALE, SCALE, this);
             }
             if (snake.runBody == 3) {
                 repaint();
-                g.drawImage(snakeBodyLeft, snake.snakeX[i] * SCALE, snake.snakeY[i] * SCALE,
+                g.drawImage(snakeBodyLeft.getImage(), snake.snakeX[i] * SCALE, snake.snakeY[i] * SCALE,
                         SCALE, SCALE, this);
 
-                g.drawImage(snakeHeadLeft, snake.snakeX[0] * SCALE, snake.snakeY[0] * SCALE,
+                g.drawImage(snakeHeadLeft.getImage(), snake.snakeX[0] * SCALE, snake.snakeY[0] * SCALE,
                         SCALE, SCALE, this);
             }
 
 
         }
 
-        g.drawImage(apple, applePos.posX * SCALE, applePos.posY * SCALE, SCALE, SCALE, this);
+        g.drawImage(apple.getImage(), applePos.posX * SCALE, applePos.posY * SCALE, SCALE, SCALE, this);
     }
 
     @Override
@@ -170,9 +171,8 @@ public class ProjectSnake extends JPanel implements ActionListener {
             }
         }
     }
-
-    static Image imageDownload(String filName) {
-        return new ImageIcon(filName).getImage();
+    static ImageIcon img (String name){
+        return new ImageIcon(ProjectSnake.class.getResource(name));
     }
 
     static class ChangeFrame extends JFrame {
@@ -202,7 +202,7 @@ public class ProjectSnake extends JPanel implements ActionListener {
                 hard.addActionListener(hAct);
 
                 setLayout(new BorderLayout());
-                JLabel back = new JLabel(new ImageIcon("src/main/resources/SnakeImg/snakeMenu.png"));
+                JLabel back = new JLabel(new ImageIcon(ProjectSnake.class.getResource("/resources/snakeMenu.png")));
                 back.setLayout(new FlowLayout());
                 back.add(easy);
                 back.add(medium);
@@ -269,7 +269,7 @@ public class ProjectSnake extends JPanel implements ActionListener {
                 changeLvl.addActionListener(change);
 
                 setLayout(new BorderLayout());
-                JLabel back = new JLabel(new ImageIcon("src/main/resources/SnakeImg/snakeMenu.png"));
+                JLabel back = new JLabel(new ImageIcon(ProjectSnake.class.getResource("/resources/snakeMenu.png")));
                 back.setLayout(new FlowLayout());
                 back.add(bButton);
                 back.add(changeLvl);

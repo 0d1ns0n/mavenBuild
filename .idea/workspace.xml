@@ -5,7 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="910a31d2-c0bb-4893-98b4-7a3691707aba" name="Changes" comment="Mavd">
+      <change afterPath="$PROJECT_DIR$/myJar.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/od1ns0n-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/boomrus/BomGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/boomrus/Bomenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/boomrus/object/Flag.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/boomrus/object/Mine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/guiStudy/SimpleGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Pmenu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dashanew.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fonBomGame.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fonBomenu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fonInfoBom.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/gavno.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/ico.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/icons8-яблоко-48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mine.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/snakeBody.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/snakeBodyDown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/snakeBodyLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/snakeBodyRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/snakeHead.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/snakeHeadDown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/snakeHeadLeft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/snakeHeadRight.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/snakeMenu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/trewDekor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/example/Hello.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ProjectSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ProjectSnake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SnakeImg/dashanew.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/images/dashanew.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SnakeImg/icons8-яблоко-48.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/images/icons8-яблоко-48.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SnakeImg/snakeBody.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/images/snakeBody.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SnakeImg/snakeBodyDown.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/images/snakeBodyDown.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SnakeImg/snakeBodyLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/images/snakeBodyLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SnakeImg/snakeBodyRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/images/snakeBodyRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SnakeImg/snakeHead.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/images/snakeHead.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SnakeImg/snakeHeadDown.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/images/snakeHeadDown.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SnakeImg/snakeHeadLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/images/snakeHeadLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SnakeImg/snakeHeadRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/images/snakeHeadRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SnakeImg/snakeMenu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/images/snakeMenu.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,24 +90,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/IdeaProjects/od1ns0n/src/main/resources&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\IdeaProjects\od1ns0n\src\main\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\IdeaProjects\od1ns0n\src\main\resources" />
+      <recent name="C:\Users\Admin\IdeaProjects\od1ns0n\src\main\java\org\example" />
       <recent name="C:\Users\Admin\IdeaProjects\od1ns0n\src\main\resources\SnakeImg" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="boomrus" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Bomenu">
+    <configuration name="BomMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="boomrus.BomMenu" />
+      <module name="od1ns0n" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="boomrus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Bomenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="boomrus.Bomenu" />
+      <module name="od1ns0n" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ProjectSnake" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.ProjectSnake" />
       <module name="od1ns0n" />
@@ -79,9 +150,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SimpleGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="guiStudy.SimpleGUI" />
+      <module name="od1ns0n" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="guiStudy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <module name="od1ns0n" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Bomenu" />
         <item itemvalue="Application.ProjectSnake" />
+        <item itemvalue="Application.BomMenu" />
+        <item itemvalue="Application.test" />
+        <item itemvalue="Application.SimpleGUI" />
       </list>
     </recent_temporary>
   </component>
@@ -101,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668810434851</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Mavd">
+      <created>1668811223879</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668811223879</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
