@@ -7,7 +7,6 @@
     <list default="true" id="910a31d2-c0bb-4893-98b4-7a3691707aba" name="Changes" comment="Mavd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/BomGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/BomGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/TestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/TestFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668811223879</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Mavd">
+      <created>1670105791268</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670105791268</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

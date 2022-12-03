@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -96,6 +98,39 @@ public class BomGame extends JPanel {
                         }
 
                     }
+                } else {
+                    jButtonTable = new JButton();
+                    jButtonTable.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
+                    action = new Action(jButtonTable);
+                    jButtonTable.addActionListener(action);
+                    jButtonTable.addMouseListener(new MouseListener() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mousePressed(MouseEvent e) {
+                            jButtonTable = (JButton) e.getSource();
+                            jButtonTable.setVisible(false);
+                        }
+
+                        @Override
+                        public void mouseReleased(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseEntered(MouseEvent e) {
+
+                        }
+
+                        @Override
+                        public void mouseExited(MouseEvent e) {
+
+                        }
+                    });
+                    add(jButtonTable);
                 }
             }
             yLength++;
@@ -137,6 +172,7 @@ public class BomGame extends JPanel {
     //g.drawImage(img("/resources/bomBOM.png"),posX()*SCALE, posY()*SCALE,SCALE,SCALE,this);
 //            }
 //        }
+
     public void paintComponent(Graphics g) {
         g.drawImage(img("/resources/gavno.png"), SCALE - 32, SCALE - 40, this);
 
