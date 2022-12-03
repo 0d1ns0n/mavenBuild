@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Objects;
 
 public class ProjectSnake extends JPanel implements ActionListener {
 
@@ -172,7 +173,7 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
         }
     }
     static ImageIcon img (String name){
-        return new ImageIcon(ProjectSnake.class.getResource(name));
+        return new ImageIcon(Objects.requireNonNull(ProjectSnake.class.getResource(name)));
     }
 
     static class ChangeFrame extends JFrame {
@@ -202,7 +203,7 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
                 hard.addActionListener(hAct);
 
                 setLayout(new BorderLayout());
-                JLabel back = new JLabel(new ImageIcon(ProjectSnake.class.getResource("/resources/snakeMenu.png")));
+                JLabel back = new JLabel(new ImageIcon(Objects.requireNonNull(ProjectSnake.class.getResource("/resources/snakeMenu.png"))));
                 back.setLayout(new FlowLayout());
                 back.add(easy);
                 back.add(medium);
@@ -269,7 +270,7 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
                 changeLvl.addActionListener(change);
 
                 setLayout(new BorderLayout());
-                JLabel back = new JLabel(new ImageIcon(ProjectSnake.class.getResource("/resources/snakeMenu.png")));
+                JLabel back = new JLabel(new ImageIcon(Objects.requireNonNull(ProjectSnake.class.getResource("/resources/snakeMenu.png"))));
                 back.setLayout(new FlowLayout());
                 back.add(bButton);
                 back.add(changeLvl);

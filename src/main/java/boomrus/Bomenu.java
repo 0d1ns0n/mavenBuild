@@ -19,8 +19,8 @@ public class Bomenu {
     public static void main(String[] args) {
         jFrame = new JFrame("Menu");
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.setSize(640, 675);
-        jFrame.setResizable(false);
+        jFrame.setSize(BomGame.WIDTH * BomGame.SCALE, BomGame.HEIGHT * BomGame.SCALE + BomGame.SCALE);
+        jFrame.setResizable(true);
         jFrame.setLocationRelativeTo(null);
         jFrame.add(menu);
         jFrame.add(changeLevel);
@@ -74,11 +74,11 @@ public class Bomenu {
         public Info() {
             setSize(Menu.WIDTH * Menu.SCALE, Menu.HEIGHT * Menu.SCALE);
             setLayout(null);
-            back.setBounds(0,0,800,800);
+            back.setBounds(0, 0, 800, 800);
             action = new Action(back);
             back.addActionListener(action);
             but(back);
-add(back);
+            add(back);
 
         }
     }
@@ -138,7 +138,7 @@ add(back);
             if (tap == Menu.jButtonS) {
                 menu.setVisible(false);
                 jFrame.add(new BomGame());
-                jFrame.setSize(Menu.WIDTH * Menu.SCALE + 16, Menu.HEIGHT * Menu.SCALE + 6);
+                jFrame.setSize(BomGame.WIDTH * BomGame.SCALE + 80, BomGame.HEIGHT * BomGame.SCALE + 80);
             }
             if (tap == Menu.jButtonO) {
                 menu.setVisible(false);
@@ -149,11 +149,11 @@ add(back);
             if (tap == Menu.jButtonI) {
                 menu.setVisible(false);
                 jFrame.setTitle("Info");
-                jFrame.setSize(800,835);
+                jFrame.setSize(800, 835);
                 info.setVisible(true);
 
             }
-            if (tap == Info.back){
+            if (tap == Info.back) {
                 info.setVisible(false);
                 jFrame.setTitle("Menu");
                 jFrame.setSize(640, 675);
@@ -163,20 +163,20 @@ add(back);
                 System.exit(0);
             }
             if (tap == ChangeLevel.es) {
-                BomGame.hardLvl =20;
+                BomGame.hardLvl = 20;
                 changeLevel.setVisible(false);
                 menu.setVisible(true);
                 jFrame.setTitle("Menu");
 
             }
             if (tap == ChangeLevel.med) {
-                BomGame.hardLvl =50;
+                BomGame.hardLvl = 50;
                 changeLevel.setVisible(false);
                 menu.setVisible(true);
                 jFrame.setTitle("Menu");
             }
             if (tap == ChangeLevel.hard) {
-                BomGame.hardLvl =80;
+                BomGame.hardLvl = 80;
                 changeLevel.setVisible(false);
                 menu.setVisible(true);
                 jFrame.setTitle("Menu");
