@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="910a31d2-c0bb-4893-98b4-7a3691707aba" name="Changes" comment="Mavd">
-      <change afterPath="$PROJECT_DIR$/src/main/java/boomrus/Mines.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/boomrus/TestFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bomBOM.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/BomGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/BomGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/Bomenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/Bomenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/object/Mine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/object/Mine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ProjectSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/ProjectSnake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/gavno.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gavno.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/TestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/TestFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -4,8 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class BomGame extends JPanel {
@@ -19,9 +18,15 @@ public class BomGame extends JPanel {
     public static final int HEIGHT = 20;// высота
 
     public static Action action;
+    public static ArrayList<JButton> arButton = new ArrayList<>();
     public static int[][] table = new int[WIDTH][HEIGHT];
     public static int[] mines;
     public static ImageIcon imageIcon;
+    public static ButtonGroup myGroup = new ButtonGroup();
+    public static int a = 0;
+    public static int b = 0;
+
+    public static JButton[][] min;
 
     public BomGame() {
 
@@ -30,33 +35,72 @@ public class BomGame extends JPanel {
         button.setBounds((BomGame.WIDTH * BomGame.SCALE + 16) / 2, 650, 70, 30);
         action = new Action(button);
         button.addActionListener(action);
+
         add(button);
         mines = new int[hardLvl];
         arraysFulling(table);
+
+//        int[][] table = new int[WIDTH][HEIGHT];
 //        int yLength = 0;
-//        for (int y = 0; y <= table.length - 1; y++) {
+//        ArrayList<ArrayList<JButton>> bB = new ArrayList<ArrayList<JButton>>();
+//        for (int i = 0; i < hardLvl; i++) {
+//            bB.add(new ArrayList<JButton>());
+//            for (int j = 0; j < hardLvl; j++) {
+//                bB.get(i).add(new JButton());
+//                add(bB.get(i).get(j));
+//            }
+//        }
+//        ArrayList<JButton> arButton = new ArrayList<>();
+        min = new JButton[WIDTH][HEIGHT];
+//        for (int i = 0; i <= table.length - 1; i++) {
 //
-//            for (int i = 0; i <= table[y].length - 1; i++) {
-//                if(table[y][i] == bom){
-//                    jButtonMine = new JButton(new ImageIcon(Objects.requireNonNull(BomGame.class.getResource("/resources/mine.png"))));
-//                    jButtonMine.setBounds(i * SCALE, yLength * SCALE, SCALE, SCALE);
-//                    action = new Action(jButtonMine);
-//                    jButtonMine.addActionListener(action);
-//                    jButtonMine.addMouseListener(new Listener());
-//                    add(jButtonMine);
-//                }
-//                else {
+//            for (int j = 0; j <= table[i].length - 1; j++) {
+////                new ImageIcon(Objects.requireNonNull(BomGame.class.getResource("/resources/mine.png")))
+//                if (table[i][j] == bom) {
+//                    table[i][j] = bom;
+//
+////                    jButtonMine.setAction(new A);
+////                    jButtonMine.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
+////                    action = new Action(jButtonMine);
+////                    jButtonMine.addActionListener(action);
+////                    arButton.add(jButtonMine);
+////                    add(jButtonMine);
+//                } else {
 //                    jButtonTable = new JButton();
-//                    jButtonTable.setBounds(i * SCALE, yLength * SCALE, SCALE, SCALE);
+//                    jButtonTable.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
 //                    action = new Action(jButtonTable);
 //                    jButtonTable.addActionListener(action);
-//                    jButtonTable.addMouseListener(new Listener());
 //                    add(jButtonTable);
 //
 //                }
 //            }
 //            yLength += 1;
 //        }
+        int yLength = 0;
+        for (int i = 0; i <= table.length - 1; i++) {
+            for (int j = 0; j <= table[i].length - 1; j++) {
+                if (table[i][j] == bom) {
+
+
+                    for (int k = 0; k <= min.length - 1; k++) {
+                        for (int l = 0; l <= min[k].length - 1; l++) {
+                            if (k == i && l == j) {
+                                jButtonMine = new JButton();
+                                jButtonMine.setName("mine" + j);
+                                jButtonMine.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
+                                action = new Action(jButtonMine);
+                                jButtonMine.addActionListener(action);
+                                add(jButtonMine);
+                            }
+
+                        }
+
+                    }
+                }
+            }
+            yLength++;
+        }
+
 
     }
 
@@ -115,60 +159,116 @@ public class BomGame extends JPanel {
 //        }
 
 
-
     }
 
-    static class Listener implements MouseListener {
-        //        public Listener(JButton b){
-//            panel = b;
-//            bom = b;
-//        }
-        @Override
-        public void mouseClicked(MouseEvent e) {
-//            JLabel jLabel = (JLabel) e.getSource();
-//            new JLabel(new ImageIcon(Objects.requireNonNull(BomGame.class.getResource("/resources/bomBOM.png"))));
-//            Button button1 =(Button) e.getSource();
-//            button1.setVisible(false);
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-            JButton jButton = (JButton) e.getSource();
-            jButton.setVisible(false);
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
-        }
-//        private final JButton panel;
-//        private JButton bom;
-    }
 
     class Action implements ActionListener {
-        public Action(JButton b) {
 
+
+        public Action(JButton b) {
             tap = b;
+
         }
 
         @Override
         public void actionPerformed(ActionEvent e) {
-//            Mines[] mines = new Mines[hardLvl];
 
-int name = 0;
-            if (tap == button) {
-                int yLength = 0;
-                for (int y = 0; y <= table.length - 1; y++) {
+            JFrame jFrame = new JFrame();
+            Object obj = e.getSource();
+            jButtonMine = (JButton) obj;
+            for (int i = 0; i < min.length; i++) {
+                for (int j = 0; j < min[i].length; j++) {
+                    if (jButtonMine.getName().equals("mine" + j)) {
 
-                    for (int i = 0; i <= table[y].length - 1; i++) {
-                        if (table[y][i] == bom) {
+                        JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой иди сюда");
+                        try {
+                            Thread.sleep(3000);
+                            System.exit(0);
+
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                    }
+
+                }
+            }
+//            if ("mine0".equals(jButtonMine.getName())) {
+//                JFrame jFrame = new JFrame();
+//                JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой иди сюда");
+//            }
+//            if ("mine0".equals(jButtonMine.getName())) {
+//                JFrame jFrame = new JFrame();
+//                JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой иди сюда");
+//            }
+
+//            for (JButton[] jButtons : min) {
+//                for (JButton jButton : jButtons) {
+//                    jButton =(JButton) obj;
+//                    action = new Action(jButton);
+//                    jButton.addActionListener(action);
+//                    if (tap == jButtonMine){
+//                        System.exit(0);
+//                    }
+//                }
+//            }
+            repaint();
+        }
+
+        private final JButton tap;
+    }
+//                int yLength = 0;
+//                for (int i = 0; i <= table.length - 1; i++) {
+//                    for (int j = 0; j <= table[i].length - 1; j++) {
+//                        if (table[i][j] == bom) {
+//                            a = i;
+//                            b = j;
+//                            for (int k = 0; k < min.length; k++) {
+//                                for (int l = 0; l < min[k].length; l++) {
+//                                    if(k == a && b ==l ){
+//                                        jButtonMine = new JButton();
+//                                        jButtonMine.setBounds(l * SCALE, yLength * SCALE, SCALE, SCALE);
+//                                        action = new Action(jButtonMine);
+//                                        jButtonMine.addActionListener(action);
+//                                        add(jButtonMine);
+//                                    }
+//
+//                                }
+//                                yLength++;
+//                            }
+//                        }
+//                    }
+//                }
+//
+//
+//                for (JButton[] jButtons : min) {
+//                    for (int j = 0; j < jButtons.length; j++) {
+//                        jButtonMine = new JButton();
+//                        jButtonMine.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
+//                        action = new Action(jButtonMine);
+//                        jButtonMine.addActionListener(action);
+//                        add(jButtonMine);
+//                    }
+//                    yLength++;
+//                }
+//                System.out.println(min.length);
+//                repaint();
+//            }
+
+
+//            if (tap == button) {
+////                int yLength = 0;
+//                for (int i = 0; i <= table.length - 1; i++){
+//                    for (int j = 0; j < table[i].length; j++) {
+//                        if (table[i][j] == bom){
+//
+//                        }
+//                    }
+//                }
+//
+//                {
+
+//            for (int i = 0; i <= table[y].length - 1; i++) {
+//                if (table[y][i] == bom) {
 //                            List<JButton> buttons = new ArrayList<JButton>();
 //
 //                            for(int index = 0; index<10; index++) {
@@ -184,40 +284,51 @@ int name = 0;
 //                                buttons[i] = new JButton("" + i);
 //                                add(buttons[i]);
 //                            }
-                            jButtonMine = new JButton("" + (i + 1));
-                            jButtonMine.setBounds(i * SCALE, yLength * SCALE, SCALE, SCALE);
-                            action = new Action(jButtonMine);
-                            jButtonMine.addActionListener(action);
-                            jButtonMine.addMouseListener(new Listener());
-                            add(jButtonMine);
-                        } else {
-                            jButtonTable = new JButton();
-                            jButtonTable.setBounds(i * SCALE, yLength * SCALE, SCALE, SCALE);
-                            action = new Action(jButtonTable);
-                            jButtonTable.addActionListener(action);
-                            jButtonTable.addMouseListener(new Listener());
-                            add(jButtonTable);
+//                            jButtonMine = new JButton();
+//                            jButtonMine.setName("" + y);
+//                            jButtonMine.setBounds(i * SCALE, yLength * SCALE, SCALE, SCALE);
+//                            action = new Action(jButtonMine);
+//                            jButtonMine.addActionListener(action);
+//                            arButton.add(new JButton());
+//                            add(jButtonMine);
 
-                        }
-                        if (tap == jButtonMine) {
-                            JFrame jFrame = new JFrame();
-                            JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой иди сюда");
-                        }
-                    }
-                    yLength += 1;
-                }
-                int i, n = 9;
-
-                n++;
-                JButton[] buttons = new JButton[n];
-                n = n - 1;
-
-                for (i = 0; i <= n; i++) {
-                    buttons[i] = new JButton("" + i);
-                    add(buttons[i]);
-                }
+//                        } else {
+//                            jButtonTable = new JButton();
+//                            jButtonTable.setBounds(i * SCALE, yLength * SCALE, SCALE, SCALE);
+//                            action = new Action(jButtonTable);
+//                            jButtonTable.addActionListener(action);
+//                            jButtonTable.addMouseListener(new Listener());
+//                            add(jButtonTable);
+//
 
 
+    //                        if (jButtonMine.isEnabled()){
+//
+//                            JFrame jFrame = new JFrame();
+//                            JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой иди сюда");
+//                        }
+
+//                    yLength += 1;
+
+
+    //                for (JButton jButton : arButton) {
+//                    myGroup.add(jButton);
+//                }
+//                System.out.println(arButton.size());
+//
+//                System.out.println(myGroup.getButtonCount());
+//                System.out.println(myGroup.getElements().toString());
+//                for (int i = 0; i < myGroup.getButtonCount(); i++) {
+//
+//                    if (myGroup.getSelection().isSelected()) {
+//                        System.exit(0);
+//                    }
+//                }
+//                System.out.println(Integer.parseInt(((JButton) e.getSource()).getName()));
+//                    if (tap == arButton.get(i)) {
+//                        JFrame jFrame = new JFrame();
+//                        JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой иди сюда");
+//                    }
 //                        jButton = new JButton();
 //                        jButton.setBounds(i * SCALE, yLength * SCALE, SCALE, SCALE);
 //                        action = new Action(jButton);
@@ -243,17 +354,10 @@ int name = 0;
 //                    }
 //                }
 //            }
-                if (tap == jButtonMine) {
-                    JFrame jFrame = new JFrame();
-                    JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой иди сюда");
-                }
+//                for (int i = 0; i < arButton.size(); i++) {
+//
+//                }
 
-                repaint();
-            }
-        }
-
-        private final JButton tap;
-    }
 
     static Image img(String file) {
         return new ImageIcon(Objects.requireNonNull(BomGame.class.getResource(file))).getImage();
@@ -282,4 +386,17 @@ int name = 0;
     static int posY() {
         return (int) (Math.random() * BomGame.HEIGHT);
     }
+
+//    static String getId(JButton[][] arrayJb) {
+//        for (int i = 0; i < arrayJb.length; i++) {
+//            for (int j = 0; j <arrayJb[i].length; j++) {
+//
+//                jButtonMine.getName();
+//            }
+//
+//
+//        }
+//
+//        return null;
+//    }
 }
