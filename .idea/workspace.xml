@@ -5,24 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="910a31d2-c0bb-4893-98b4-7a3691707aba" name="Changes" comment="Mavd">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/iconFlag.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/BomGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/BomGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/Bomenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/Bomenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/Mines.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/TestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/TestFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/object/Mine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/images/dashanew.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/images/icons8-яблоко-48.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/images/snakeBody.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/images/snakeBodyDown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/images/snakeBodyLeft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/images/snakeBodyRight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/images/snakeHead.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/images/snakeHeadDown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/images/snakeHeadLeft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/images/snakeHeadRight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/images/snakeMenu.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670141632855</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Mavd">
+      <created>1670248847009</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670248847010</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

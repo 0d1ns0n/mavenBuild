@@ -139,6 +139,7 @@ public class BomGame extends JPanel {
                 for (int i = 1; i < indexTable; i++) {
                     if (b.getName().equals("table" + i) && tap == b) {
 
+
                         b.setIcon(new ImageIcon("src/main/resources/iconFlag.png"));
                     } else if (b.getName().equals("mine" + i) && tap == b) {
                         b.setIcon(new ImageIcon("src/main/resources/iconFlag.png"));
@@ -146,6 +147,7 @@ public class BomGame extends JPanel {
                     }
                 }
             } else if (e.getButton() == MouseEvent.BUTTON1) {
+
                 for (int i = 1; i < indexTable; i++) {
                     if (b.getName().equals("mine" + i) && tap == b && b.getIcon() == button.getIcon()) {
                         JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой, на в ебало!");
@@ -153,6 +155,7 @@ public class BomGame extends JPanel {
                     } else if
                     (b.getName().equals("table" + i) && tap == b && b.getIcon() == button.getIcon()) {
                         b.setVisible(false);
+
                     }
                 }
             }
