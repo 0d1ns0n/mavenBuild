@@ -3,15 +3,27 @@ package boomrus;
 import javax.swing.*;
 
 public class TestFrame extends JFrame {
+    public TestFrame() {
+        super("Menu");
+        setSize(800, 800);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-    public static void main(String[] args) {
-        int [][] arrays = new int[BomGame.HEIGHT][BomGame.WIDTH];
-        for (int i = 0; i <arrays.length; i++) {
-            for (int j = 0; j < arrays[i].length ; j++) {
+//        jButton.setText("First button");
+//        jButton.setMnemonic('F');
+//        jButton.setBounds( 100, 100 , 80,80);
+//setSize(600,600);
+//add(jButton);
+        setVisible(true);
 
-            }
+        for (int i = 0; i < 10; i++) {
+            JButton jButton = new JButton();
         }
+        pack();
     }
+}
+
+
+
 //    private  final  String  BUTTON_NAME = "button1";
 //
 //    public TestFrame(){
@@ -46,7 +58,7 @@ public class TestFrame extends JFrame {
 //    public static void main(String[] args) {
 //        new TestFrame();
 //    }
-}
+
 //        final int bom = 999;
 //
 //        int[][] arrays = new int[20][20];

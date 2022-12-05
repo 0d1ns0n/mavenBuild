@@ -9,91 +9,84 @@ import java.awt.event.MouseListener;
 import java.util.Objects;
 
 public class BomGame extends JPanel {
+
     // Ниже находится блок отвечающий за (набор всех статиков
     public static final int bom = 999;
+    public static int indexTable = 1;
+    public static int indexMine = 1;
     public static JButton jButtonMine;
+    public static JButton FLAG = new JButton(new ImageIcon("src/main/resources/iconFlag.png"));
+    public static JButton jButtonMineIcon = new JButton(new ImageIcon("src/main/resources/mine.png"));
     public static JButton jButtonTable;
+    public static JFrame jFrame;
     public static int hardLvl = 0;
     public static JButton button = new JButton("bom");
     public static final int SCALE = 32; // шкала пискселей, размер клетки
     public static final int WIDTH = 20; // ширина
     public static final int HEIGHT = 20;// высота
-
     public static Action action;
     public static int[][] table = new int[WIDTH][HEIGHT];
-    public static int[] mines;
-    public static JButton[][] min;
-
 
 
     // Ниже находится блок отвечающий за основую логику и окно игры
     public BomGame() {
+
+        action = new Action(button);
 
         setFocusable(true);
         setLayout(null);
 
 
         button.setBounds((BomGame.WIDTH * BomGame.SCALE + 16) / 2, 650, 70, 30);
-        action = new Action();
         button.addActionListener(action);
         add(button);
 
 
-        mines = new int[hardLvl];
         arraysFulling(table);
-        min = new JButton[WIDTH][HEIGHT];
         int yLength = 0;
+
         for (int i = 0; i <= table.length - 1; i++) {
             for (int j = 0; j <= table[i].length - 1; j++) {
                 if (table[i][j] == bom) {
+                    jButtonMine = new JButton();
+                    jButtonMine.setIcon(button.getIcon());
+                    jButtonMine.setName("mine" + indexMine++);
+                    jButtonMine.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
+                    action = new Action(jButtonMine);
+                    jButtonMine.addActionListener(action);
+                    jButtonMine.addMouseListener(action);
+                    add(jButtonMine);
 
-
-                    for (int k = 0; k <= min.length - 1; k++) {
-                        for (int l = 0; l <= min[k].length - 1; l++) {
-                            if (k == i && l == j) {
-                                jButtonMine = new JButton();
-                                jButtonMine.setName("mine" + j);
-                                jButtonMine.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
-                                action = new Action();
-                                jButtonMine.addActionListener(action);
-                                add(jButtonMine);
-                            }
-                        }
-                    }
                 } else {
+
                     jButtonTable = new JButton();
+                    jButtonTable.setIcon(button.getIcon());
+                    jButtonTable.setName("table" + indexTable++);
                     jButtonTable.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
-                    action = new Action();
+                    action = new Action(jButtonTable);
                     jButtonTable.addActionListener(action);
-                    jButtonTable.addMouseListener(new MouseListener() {
-                        @Override
-                        public void mouseClicked(MouseEvent e) {}
-
-                        @Override
-                        public void mousePressed(MouseEvent e) {
-                            jButtonTable = (JButton) e.getSource();
-                            jButtonTable.setVisible(false);
-                        }
-
-                        @Override
-                        public void mouseReleased(MouseEvent e) {}
-
-                        @Override
-                        public void mouseEntered(MouseEvent e) {}
-
-                        @Override
-                        public void mouseExited(MouseEvent e) {}
-                    });
+                    jButtonTable.addMouseListener(action);
                     add(jButtonTable);
                 }
             }
             yLength++;
         }
+        for (int i = 1; i < table.length; i++) {
+            for (int j = 1; j < table[i].length; j++) {
+
+                System.out.print(table[i][j] + "\t");
+            }
+            System.out.println("");
+        }
+        System.out.println(jButtonMine.getName());
+        System.out.println(jButtonTable.getName());
+
+
     }
 
     // Ниже находится блок отвечающий за графическую прорисовку
     public void paintComponent(Graphics g) {
-        g.drawImage(img(), SCALE - 32, SCALE - 40, this);
+        g.drawImage(img("/resources/gavno.png"), SCALE - 32, SCALE - 40, this);
 
 
         g.setColor(Color.black);
@@ -107,42 +100,89 @@ public class BomGame extends JPanel {
 
     }
 
+
     // Ниже находится блок отвечающий за ещё одну логику на этапе написание info 04/12/22 t10:11 - логика только открытия мин
-    class Action implements ActionListener {
+    class Action implements ActionListener, MouseListener {
+        public Action(JButton button) {
+            tap = button;
+        }
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            JButton b = (JButton) e.getSource();
 
-            JFrame jFrame = new JFrame();
-            Object obj = e.getSource();
-            jButtonMine = (JButton) obj;
-            for (JButton[] jButtons : min) {
-                for (int j = 0; j < jButtons.length; j++) {
-                    if (jButtonMine.getName().equals("mine" + j)) {
 
-                        JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой иди сюда");
-                        System.exit(0);
-//                        try {
-//                            Thread.sleep(3000);
-//                            System.exit(0);
-//
-//                        } catch (InterruptedException ex) {
-//                            throw new RuntimeException(ex);
-                    }
+            System.out.println(e.getSource());
+
+            for (int i = 1; i < indexTable; i++) {
+                if (b.getName().equals("table" + i) && tap == b) {
+                    b.setIcon(button.getIcon());
+                } else if (b.getName().equals("mine" + i) && tap == b) {
+                    b.setIcon(jButtonMine.getIcon());
                 }
             }
             repaint();
         }
+
+        private final JButton tap;
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            JButton b = (JButton) e.getSource();
+            if (e.getButton() == MouseEvent.BUTTON3) {
+
+                for (int i = 1; i < indexTable; i++) {
+                    if (b.getName().equals("table" + i) && tap == b) {
+
+                        b.setIcon(new ImageIcon("src/main/resources/iconFlag.png"));
+                    } else if (b.getName().equals("mine" + i) && tap == b) {
+                        b.setIcon(new ImageIcon("src/main/resources/iconFlag.png"));
+
+                    }
+                }
+            } else if (e.getButton() == MouseEvent.BUTTON1) {
+                for (int i = 1; i < indexTable; i++) {
+                    if (b.getName().equals("mine" + i) && tap == b && b.getIcon() == button.getIcon()) {
+                        JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой, на в ебало!");
+                        System.exit(0);
+                    } else if
+                    (b.getName().equals("table" + i) && tap == b && b.getIcon() == button.getIcon()) {
+                        b.setVisible(false);
+                    }
+                }
+            }
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
     }
 
     // Ниже находится блок отвечающий за статик добавление картинок
-    static Image img() {
-        return new ImageIcon(Objects.requireNonNull(BomGame.class.getResource("/resources/gavno.png"))).getImage();
+    static Image img(String resource) {
+        return new ImageIcon(Objects.requireNonNull(BomGame.class.getResource(resource))).getImage();
     }
 
     // Ниже находится блок отвечающий за статик отвечающий за заполнение массива бомбами !!!
     static void arraysFulling(int[][] arrays) {
-        for (int i = 1; i <= 80; i++) {
+        for (int i = 1; i <= hardLvl; i++) {
             int a = posX();
             int b = posY();
 
@@ -165,6 +205,5 @@ public class BomGame extends JPanel {
     static int posY() {
         return (int) (Math.random() * BomGame.HEIGHT);
     }
-
 
 }

@@ -27,6 +27,7 @@ public class Bomenu {
         jFrame.add(info);
         changeLevel.setVisible(false);
         info.setVisible(false);
+        jFrame.setIconImage(img("/resources/mine.png"));
         jFrame.setVisible(true);
     }
 
