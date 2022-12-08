@@ -1,27 +1,242 @@
 package boomrus;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Objects;
 
-public class TestFrame extends JFrame {
-    public TestFrame() {
-        super("Menu");
-        setSize(800, 800);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+public class TestFrame extends JFrame implements ActionListener {
+    public static final int SCALE = 32;
+    public static final int WIDTH = 20;
+    public static final int HEIGHT = 20;
+    private final int mineID = 999;
+    private final JPanel jPanel = new JPanel();
+    private ArrayList<JButton> list = new ArrayList<>();
+    public static int[][] table = new int[WIDTH][HEIGHT];
+    public static JButton button = new JButton("BOOM");
+    public static JButton button1 = new JButton(new ImageIcon("src/main/resources/1-remove.png"));
+    public static JButton button2 = new JButton();
+    public static JButton button3 = new JButton();
+    public static JButton button4 = new JButton();
 
-//        jButton.setText("First button");
-//        jButton.setMnemonic('F');
-//        jButton.setBounds( 100, 100 , 80,80);
-//setSize(600,600);
-//add(jButton);
-        setVisible(true);
 
-        for (int i = 0; i < 10; i++) {
-            JButton jButton = new JButton();
+    TestFrame() {
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setSize(WIDTH * SCALE + 18, HEIGHT * SCALE + 80);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        add(jPanel);
+        jPanel.setLayout(null);
+        button.setBounds((TestFrame.WIDTH * TestFrame.SCALE - 50) / 2, 650, 70, 30);
+        button.addActionListener(this);
+        jPanel.add(button);
+        arraysFulling(table);
+    }
+
+    void arraysFulling(int[][] arrays) {
+        for (int i = 1; i <= 80; i++) {
+            int a = posX();
+            int b = posY();
+
+            for (int j = 0; j < 1; j++) {
+                if (arrays[a][b] == 0) {
+                    arrays[a][b] = mineID;
+
+                } else {
+                    i = i - 1;
+                }
+            }
         }
-        pack();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("BOOM")) {
+            button.setVisible(false);
+
+            int yLength = 0;
+            for (int i = 0; i <= table.length - 1; i++) {
+
+                for (int j = 0; j <= table[i].length - 1; j++) {
+                    if (table[i][j] == mineID) {
+                        JButton jButton = new JButton();
+                        String strM = i + "m" + j;
+                        jButton.setName(strM);
+                        jButton.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
+                        jButton.addActionListener(this);
+                        jPanel.add(jButton);
+                        list.add(jButton);
+                    } else {
+                        String str = i + "t" + j;
+                        JButton jButton = new JButton();
+                        jButton.setName(str);
+                        jButton.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
+                        jButton.addActionListener(this);
+                        jPanel.add(jButton);
+                        list.add(jButton);
+                    }
+                    System.out.print("\t");
+                }
+                System.out.println(list.size());
+                System.out.println();
+                yLength++;
+
+            }
+        } else {
+            tapToTable((JButton) e.getSource());
+        }
+        jPanel.revalidate();
+        repaint();
+    }
+
+    void tapToTable(JButton b) {
+        for (Iterator<JButton> iterator = list.iterator(); iterator.hasNext(); ) {
+            JButton n = iterator.next();
+            for (int i = 0; i <= table.length - 1; i++) {
+                for (int j = 0; j <= table[i].length - 1; j++) {
+
+                    if (n.equals(b) && b.getName().equals(i + "t" + j)) {
+                        jPanel.remove(n);
+                        findB(i,j);
+                        iterator.remove();
+
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+
+//    static class Action implements MouseListener {
+//        public Action(JButton button) {
+//            tap = button;
+//        }
+//
+//        private final JButton tap;
+//
+//        @Override
+//        public void mouseClicked(MouseEvent e) {
+//
+//        }
+//
+//        @Override
+//        public void mousePressed(MouseEvent e) {
+//            JFrame jFrame = new JFrame();
+//
+//            JButton b[][] = (JButton[][]) e.getSource();
+//            if (e.getButton() == MouseEvent.BUTTON3) {
+//                for (int i = 0; i <= jButton.length - 1; i++) {
+//                    for (int j = 0; j <= jButton[i].length - 1; j++) {
+//
+//
+//                        if (b[i][j].getName().equals("table" + i) ) {
+//
+//
+//                            b[i][j].setIcon(new ImageIcon("src/main/resources/iconFlag.png"));
+//                        } else if (b[i][j].getName().equals("mine" + i) ) {
+//                            b[i][j].setIcon(new ImageIcon("src/main/resources/iconFlag.png"));
+//                        }
+//                    }
+//                }
+//            } else if (e.getButton() == MouseEvent.BUTTON1) {
+//
+//                for (int i = 0; i <= jButton.length - 1; i++) {
+//                    for (int j = 0; j <= jButton[i].length - 1; j++) {
+//
+//                        if (b[i][j].getName().equals("mine" + i) && b[i][j].getIcon() == button.getIcon()) {
+//                            JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой, на в ебало!");
+//                            System.exit(0);
+//                        } else if
+//                        (b[i][j].getName().equals("table" + i) &&  b[i][j].getIcon() == button.getIcon()) {
+//                            b[i][j].setVisible(false);
+//
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//
+//
+//        @Override
+//        public void mouseReleased(MouseEvent e) {
+//
+//        }
+//
+//        @Override
+//        public void mouseEntered(MouseEvent e) {
+//
+//        }
+//
+//        @Override
+//        public void mouseExited(MouseEvent e) {
+//
+//        }
+//    }
+
+
+    @Override
+    public void paintComponents(Graphics g) {
+        g.drawImage(img("/resources/gavno.png"), SCALE - 32, SCALE - 40, this);
+        repaint();
+
+    }
+
+    static Image img(String resource) {
+        return new ImageIcon(Objects.requireNonNull(BomGame.class.getResource(resource))).getImage();
+    }
+
+    static int posX() {
+        return (int) (Math.random() * 20);
+    }
+
+    static int posY() {
+        return (int) (Math.random() * 20);
+    }
+
+    void findB(int i, int j) {
+
+                for (JButton next : list){
+                    if (next.getName().equals(i + "t" + (j + 1))) {
+                        jPanel.remove(next);
+                    }
+                    if (next.getName().equals(i + "m" + (j + 1))) {
+                        list.get(list.indexOf(next)- 1).setIcon(button1.getIcon());
+                    }
+                    if (next.getName().equals(i + "t" + (j - 1))) {
+                        jPanel.remove(next);
+                    }
+                    if (next.getName().equals((i-1) + "t" + (j + 1))) {
+                        jPanel.remove(next);
+                    }
+                    if (next.getName().equals((i-1) + "t" + j)) {
+                        jPanel.remove(next);
+                    }
+                    if (next.getName().equals((i-1) + "t" + (j - 1))) {
+                        jPanel.remove(next);
+                    }
+                    if (next.getName().equals((i+1) + "t" + (j - 1))) {
+                        jPanel.remove(next);
+                    }
+                    if (next.getName().equals((i+1) + "t" + j)) {
+                        jPanel.remove(next);
+                    }
+                    if (next.getName().equals((i+1) + "t" + (j + 1))) {
+                        jPanel.remove(next);
+                    }
+
+                }
+    }
+
+
+    public static void main(String[] args) {
+        JFrame frame = new TestFrame();
+        frame.setVisible(true);
     }
 }
-
 
 
 //    private  final  String  BUTTON_NAME = "button1";
