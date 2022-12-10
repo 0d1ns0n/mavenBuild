@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="910a31d2-c0bb-4893-98b4-7a3691707aba" name="Changes" comment="Mavd">
-      <change afterPath="$PROJECT_DIR$/src/main/java/boomrus/BomGameFinal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SDRubludok.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/BomGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/BomGameOldBrainWRONG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/Bomenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/Bomenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/TestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/TestFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +78,7 @@
       <recent name="boomrus" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Bomenu">
+  <component name="RunManager" selected="Application.SDRubludok">
     <configuration name="Bomenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="boomrus.Bomenu" />
       <module name="od1ns0n" />
@@ -107,15 +99,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ObjMass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="boomrus.ObjMass" />
+    <configuration name="SDRubludok" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SDRubludok" />
       <module name="od1ns0n" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="boomrus.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -148,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SDRubludok" />
         <item itemvalue="Application.Bomenu" />
         <item itemvalue="Application.TestFrame" />
         <item itemvalue="Application.MinerBrain" />
         <item itemvalue="Application.TestArraysFrame" />
-        <item itemvalue="Application.ObjMass" />
       </list>
     </recent_temporary>
   </component>
@@ -239,6 +225,16 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Mavd" />
     <option name="LAST_COMMIT_MESSAGE" value="Mavd" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
