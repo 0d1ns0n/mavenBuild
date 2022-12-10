@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Objects;
 
-public class BomGame extends JPanel {
+public class BomGameOldBrainWRONG extends JPanel {
 
     // Ниже находится блок отвечающий за (набор всех статиков
     public static final int bom = 999;
@@ -29,7 +29,7 @@ public class BomGame extends JPanel {
 
 
     // Ниже находится блок отвечающий за основую логику и окно игры
-    public BomGame() {
+    public BomGameOldBrainWRONG() {
 
         action = new Action(button);
 
@@ -37,7 +37,7 @@ public class BomGame extends JPanel {
         setLayout(null);
 
 
-        button.setBounds((BomGame.WIDTH * BomGame.SCALE + 16) / 2, 650, 70, 30);
+        button.setBounds((BomGameOldBrainWRONG.WIDTH * BomGameOldBrainWRONG.SCALE + 16) / 2, 650, 70, 30);
         button.addActionListener(action);
         add(button);
 
@@ -180,10 +180,10 @@ public class BomGame extends JPanel {
 
     // Ниже находится блок отвечающий за статик добавление картинок
     static Image img(String resource) {
-        return new ImageIcon(Objects.requireNonNull(BomGame.class.getResource(resource))).getImage();
+        return new ImageIcon(Objects.requireNonNull(BomGameOldBrainWRONG.class.getResource(resource))).getImage();
     }
 
-    // Ниже находится блок отвечающий за статик отвечающий за заполнение массива бомбами !!!
+    // Ниже находится блок статик отвечающий за заполнение массива бомбами !!!
     static void arraysFulling(int[][] arrays) {
         for (int i = 1; i <= hardLvl; i++) {
             int a = posX();
@@ -202,11 +202,11 @@ public class BomGame extends JPanel {
 
     // Ниже находится блок отвечающий за рандом разброс - может будет удалён
     static int posX() {
-        return (int) (Math.random() * BomGame.WIDTH);
+        return (int) (Math.random() * BomGameOldBrainWRONG.WIDTH);
     }
 
     static int posY() {
-        return (int) (Math.random() * BomGame.HEIGHT);
+        return (int) (Math.random() * BomGameOldBrainWRONG.HEIGHT);
     }
 
 }

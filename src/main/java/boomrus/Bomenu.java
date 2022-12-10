@@ -19,7 +19,7 @@ public class Bomenu {
     public static void main(String[] args) {
         jFrame = new JFrame("Menu");
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.setSize(BomGame.WIDTH * BomGame.SCALE, BomGame.HEIGHT * BomGame.SCALE + BomGame.SCALE);
+        jFrame.setSize(BomGameOldBrainWRONG.WIDTH * BomGameOldBrainWRONG.SCALE, BomGameOldBrainWRONG.HEIGHT * BomGameOldBrainWRONG.SCALE + BomGameOldBrainWRONG.SCALE);
         jFrame.setResizable(true);
         jFrame.setLocationRelativeTo(null);
         jFrame.add(menu);
@@ -138,8 +138,10 @@ public class Bomenu {
         public void actionPerformed(ActionEvent e) {
             if (tap == Menu.jButtonS) {
                 menu.setVisible(false);
-                jFrame.add(new BomGame());
-                jFrame.setSize(BomGame.WIDTH * BomGame.SCALE + 80, BomGame.HEIGHT * BomGame.SCALE + 80);
+
+                JFrame game = new BomGameFinal();
+                game.setVisible(true);
+                jFrame.setVisible(false);
             }
             if (tap == Menu.jButtonO) {
                 menu.setVisible(false);
@@ -164,20 +166,20 @@ public class Bomenu {
                 System.exit(0);
             }
             if (tap == ChangeLevel.es) {
-                BomGame.hardLvl = 20;
+                BomGameFinal.lvl = 20;
                 changeLevel.setVisible(false);
                 menu.setVisible(true);
                 jFrame.setTitle("Menu");
 
             }
             if (tap == ChangeLevel.med) {
-                BomGame.hardLvl = 50;
+                BomGameFinal.lvl = 50;
                 changeLevel.setVisible(false);
                 menu.setVisible(true);
                 jFrame.setTitle("Menu");
             }
             if (tap == ChangeLevel.hard) {
-                BomGame.hardLvl = 80;
+                BomGameFinal.lvl = 80;
                 changeLevel.setVisible(false);
                 menu.setVisible(true);
                 jFrame.setTitle("Menu");

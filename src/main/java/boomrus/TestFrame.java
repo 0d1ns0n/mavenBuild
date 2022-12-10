@@ -14,13 +14,14 @@ public class TestFrame extends JFrame implements ActionListener {
     public static final int HEIGHT = 20;
     private final int mineID = 999;
     private final JPanel jPanel = new JPanel();
-    private ArrayList<JButton> list = new ArrayList<>();
+    private static ArrayList<JButton> list = new ArrayList<>();
     public static int[][] table = new int[WIDTH][HEIGHT];
     public static JButton button = new JButton("BOOM");
-    public static JButton button1 = new JButton(new ImageIcon("src/main/resources/1-remove.png"));
-    public static JButton button2 = new JButton();
-    public static JButton button3 = new JButton();
-    public static JButton button4 = new JButton();
+    public static JButton button1 = new JButton(new ImageIcon("src/main/resources/1.png"));
+    public static JButton button2 = new JButton(new ImageIcon("src/main/resources/2.png"));
+    public static JButton button3 = new JButton(new ImageIcon("src/main/resources/3.png"));
+    public static JButton button4 = new JButton(new ImageIcon("src/main/resources/4.png"));
+    public static JButton button5 = new JButton(new ImageIcon("src/main/resources/5.png"));
 
 
     TestFrame() {
@@ -62,7 +63,7 @@ public class TestFrame extends JFrame implements ActionListener {
 
                 for (int j = 0; j <= table[i].length - 1; j++) {
                     if (table[i][j] == mineID) {
-                        JButton jButton = new JButton();
+                        JButton jButton = new JButton(new ImageIcon("src/main/resources/mine.png"));
                         String strM = i + "m" + j;
                         jButton.setName(strM);
                         jButton.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
@@ -93,18 +94,39 @@ public class TestFrame extends JFrame implements ActionListener {
     }
 
     void tapToTable(JButton b) {
+        System.out.println(list.indexOf(b));
+
         for (Iterator<JButton> iterator = list.iterator(); iterator.hasNext(); ) {
             JButton n = iterator.next();
+
             for (int i = 0; i <= table.length - 1; i++) {
                 for (int j = 0; j <= table[i].length - 1; j++) {
 
                     if (n.equals(b) && b.getName().equals(i + "t" + j)) {
-                        jPanel.remove(n);
-                        findB(i,j);
-                        iterator.remove();
 
-                        break;
+                        switch (findB(i,j)) {
+                            case 1 -> {
+                                list.get(list.indexOf(b)).setIcon(button1.getIcon());
+                            }
+                            case 2 -> {
+                                list.get(list.indexOf(b)).setIcon(button2.getIcon());
+                            }
+                            case 3 -> {
+                                list.get(list.indexOf(b)).setIcon(button3.getIcon());
+                            }
+                            case 4 -> {
+                                list.get(list.indexOf(b)).setIcon(button4.getIcon());
+                            }
+                            case 5 -> {
+                                list.get(list.indexOf(b)).setIcon(button5.getIcon());
+                            }
+                        }
+
+
+iterator.remove();
+                            break;
                     }
+
                 }
             }
         }
@@ -186,7 +208,7 @@ public class TestFrame extends JFrame implements ActionListener {
     }
 
     static Image img(String resource) {
-        return new ImageIcon(Objects.requireNonNull(BomGame.class.getResource(resource))).getImage();
+        return new ImageIcon(Objects.requireNonNull(BomGameOldBrainWRONG.class.getResource(resource))).getImage();
     }
 
     static int posX() {
@@ -197,38 +219,158 @@ public class TestFrame extends JFrame implements ActionListener {
         return (int) (Math.random() * 20);
     }
 
-    void findB(int i, int j) {
+    static int findB(int i, int j) {
 
-                for (JButton next : list){
-                    if (next.getName().equals(i + "t" + (j + 1))) {
-                        jPanel.remove(next);
-                    }
-                    if (next.getName().equals(i + "m" + (j + 1))) {
-                        list.get(list.indexOf(next)- 1).setIcon(button1.getIcon());
-                    }
-                    if (next.getName().equals(i + "t" + (j - 1))) {
-                        jPanel.remove(next);
-                    }
-                    if (next.getName().equals((i-1) + "t" + (j + 1))) {
-                        jPanel.remove(next);
-                    }
-                    if (next.getName().equals((i-1) + "t" + j)) {
-                        jPanel.remove(next);
-                    }
-                    if (next.getName().equals((i-1) + "t" + (j - 1))) {
-                        jPanel.remove(next);
-                    }
-                    if (next.getName().equals((i+1) + "t" + (j - 1))) {
-                        jPanel.remove(next);
-                    }
-                    if (next.getName().equals((i+1) + "t" + j)) {
-                        jPanel.remove(next);
-                    }
-                    if (next.getName().equals((i+1) + "t" + (j + 1))) {
-                        jPanel.remove(next);
-                    }
+        int countM = 0;
 
-                }
+        for (JButton next : list) {
+
+            if (next.getName().equals((i) + "m" + (j + 1))) {
+                countM++;
+            }
+            if (next.getName().equals((i) + "m" + (j + 1))) {
+                countM++;
+
+            }
+
+            if (next.getName().equals((i) + "m" + (j - 1))) {
+                countM++;
+            }
+
+            if (next.getName().equals((i - 1) + "m" + (j - 1))) {
+                countM++;
+            }
+
+            if (next.getName().equals((i - 1) + "m" + (j))) {
+                countM++;
+            }
+
+            if (next.getName().equals((i - 1) + "m" + (j + 1))) {
+                countM++;
+            }
+
+            if (next.getName().equals((i + 1) + "m" + (j - 1))) {
+                countM++;
+            }
+
+            if (next.getName().equals((i + 1) + "m" + (j))) {
+                countM++;
+            }
+
+            if (next.getName().equals((i + 1) + "m" + (j + 1))) {
+                countM++;
+            }
+        }
+        return countM;
+    }
+    static int findP(int i, int j, String buttonObj) {
+
+        int countM = 0;
+
+        for (JButton next : list) {
+
+            if (next.getName().equals((i) + buttonObj + (j + 1))) {
+                countM++;
+            }
+            if (next.getName().equals((i) + buttonObj + (j + 1))) {
+                countM++;
+
+            }
+
+            if (next.getName().equals((i) + buttonObj + (j - 1))) {
+                countM++;
+            }
+
+            if (next.getName().equals((i - 1) + buttonObj + (j - 1))) {
+                countM++;
+            }
+
+            if (next.getName().equals((i - 1) + buttonObj + (j))) {
+                countM++;
+            }
+
+            if (next.getName().equals((i - 1) + buttonObj + (j + 1))) {
+                countM++;
+            }
+
+            if (next.getName().equals((i + 1) + buttonObj + (j - 1))) {
+                countM++;
+            }
+
+            if (next.getName().equals((i + 1) + buttonObj + (j))) {
+                countM++;
+            }
+
+            if (next.getName().equals((i + 1) + buttonObj + (j + 1))) {
+                countM++;
+            }
+
+        }
+        return countM;
+    }
+//            if (next.getName().equals(i + "t" + (j + 1))) {
+//                next.setVisible(false);
+//                countM++;
+//            } else if (next.getName().equals(i + "m" + (j + 1))){
+//                list.get(posM -1).setIcon(button1.getIcon());
+//                break;
+//            }
+//            if (next.getName().equals(i + "t" + (j - 1))) {
+//                next.setVisible(false);
+//            } else if () {
+//
+//            }
+//            if (next.getName().equals((i - 1) + "t" + (j + 1))) {
+//                next.setVisible(false);
+//            }else if () {
+//
+//            }
+//            if (next.getName().equals((i - 1) + "t" + j)) {
+//                next.setVisible(false);
+//            }else if () {
+//
+//            }
+//            if (next.getName().equals((i - 1) + "t" + (j - 1))) {
+//                next.setVisible(false);
+//            }else if () {
+//
+//            }
+//            if (next.getName().equals((i + 1) + "t" + (j - 1))) {
+//                next.setVisible(false);
+//            }else if () {
+//
+//            }
+//            if (next.getName().equals((i + 1) + "t" + j)) {
+//                next.setVisible(false);
+//            }else if () {
+//
+//            }
+//            if (next.getName().equals((i + 1) + "t" + (j + 1))) {
+//                next.setVisible(false);
+//            }else if () {
+//
+//            }
+
+
+
+    void T(JButton button, int i, int j){
+        int countM = 0;
+        int posM = list.indexOf(button);
+       if (button.getName().equals((i) + "m" + (j+ 1))){countM++;};
+
+        if (button.getName().equals((i) + "m" + (j -1))){countM++;};
+
+        if (button.getName().equals((i-1) + "m" + (j-1))){countM++;};
+
+        if (button.getName().equals((i-1) + "m" + (j))){countM++;};
+
+        if (button.getName().equals((i-1) + "m" + (j+1))){countM++;};
+
+        if (button.getName().equals((i+1) + "m" + (j-1))){countM++;};
+
+        if (button.getName().equals((i+1) + "m" + (j))){countM++;};
+
+        if (button.getName().equals((i+1) + "m" + (j+1))){countM++;};
     }
 
 
