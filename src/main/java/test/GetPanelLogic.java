@@ -4,31 +4,17 @@ import javax.swing.*;
 
 public class GetPanelLogic extends BomNewBrain {
 
-    static void tapToTable(JButton b) {
+    static void tapToTable(JButton bb) {
 
-        for (JButton n : list) {
-            for (int i = 0; i <= table.length - 1; i++) {
-                for (int j = 0; j <= table[i].length - 1; j++) {
 
-                    if (n.equals(b) && b.getName().equals(i + "t" + j) && b.getIcon() == null) {
+            for (int i = 0; i < list.size() - 1; i++) {
+                for (JButton b : list) {
 
-                        switch (findB(i, j)) {
+                    if (b.equals(bb) && bb.getName().equals("" + i) && bb.getIcon() == null) {
+clear(b);
+                        switch (clear(b)) {
                             case 0 -> {
 
-
-                                list.get(list.indexOf(b)).setVisible(false);
-                                list.get(list.indexOf(b) + 1).setVisible(false);
-                                list.get(list.indexOf(b) - 1).setVisible(false);
-                                //UP clean
-                                if (list.indexOf(b) - 20 > -1) {
-                                    list.get(list.indexOf(b) - 20).setVisible(false);
-                                    list.get(list.indexOf(b) - 21).setVisible(false);
-                                    list.get(list.indexOf(b) - 19).setVisible(false);
-                                }
-                                //DOWN clean
-                                list.get(list.indexOf(b) + 20).setVisible(false);
-                                list.get(list.indexOf(b) + 21).setVisible(false);
-                                list.get(list.indexOf(b) + 19).setVisible(false);
 
                             }
 
@@ -42,83 +28,88 @@ public class GetPanelLogic extends BomNewBrain {
 
                         break;
                     }
-                }
+
             }
         }
     }
 
-    static int findB(int i, int j) {
+    static int clear(JButton next) {
 
         int countM = 0;
-        for (JButton next : list) {
+        int thisB = 1;
+        int UnD = 20;
 
-            if (next.getName().equals(i + "m" + (j + tableClean))) {
-                countM++;
-            }
-            if (next.getName().equals(i + "m" + (j - tableClean))) {
-                countM++;
+
+        for (JButton b : list) {
+
+            if (next.equals(b)) {
+                int m = list.indexOf(b);
+//                    System.out.println(m+"index   INFO FOR METHOD");
+
+                if (m - thisB > -1 && m + thisB < 400) {
+
+                    if (m%20 !=19 ) {
+                        if (list.get(m + thisB).getName().equals("m")) {
+                            System.out.println("right");
+                            countM++;
+                        }
+                    }
+
+                    if (m%20 !=0 ) {
+                        if (list.get(m - thisB).getName().equals("m")) {
+                            countM++;
+                        }
+                    }
+                }
+
+                // toUP
+                if (m - UnD > -1 && m -(UnD + thisB) > -1) {
+                    System.out.println("u");
+                    if ((m - UnD)%20 !=19 ) {
+                        if (list.get(m - (UnD - thisB)).getName().equals("m")) {
+                            System.out.println("right-20");
+                            countM++;
+                        }
+                    }
+
+                    if (list.get(m - UnD).getName().equals("m")) {
+                        countM++;
+                    }
+
+                    if (((m- UnD)%20 !=0 )) {
+                        if (list.get(m - (UnD + thisB)).getName().equals("m")) {
+                            countM++;
+                        }
+                    }
+                }
+
+                if (m + UnD < 399  ) {
+                    System.out.println("d");
+                    //toDown
+
+                    if ((m + UnD)%20 != 19) {
+                        if (list.get(m + (UnD + thisB)).getName().equals("m")) {
+                            System.out.println("right");
+                            countM++;
+                        }
+                    }
+
+                    if (list.get(m + UnD).getName().equals("m")) {
+                        countM++;
+                    }
+
+                    if (((m + UnD)%20 != 0)) {
+                        if (list.get(m + (UnD - thisB)).getName().equals("m")) {
+                            countM++;
+                        }
+                    }
+
+                }
             }
 
-            if (next.getName().equals((i - tableClean) + "m" + (j - tableClean))) {
-                countM++;
-            }
-
-            if (next.getName().equals((i - tableClean) + "m" + (j))) {
-                countM++;
-            }
-
-            if (next.getName().equals((i - tableClean) + "m" + (j + tableClean))) {
-                countM++;
-            }
-
-            if (next.getName().equals((i + tableClean) + "m" + (j - tableClean))) {
-                countM++;
-            }
-
-            if (next.getName().equals((i + tableClean) + "m" + (tableClean))) {
-                countM++;
-            }
-
-            if (next.getName().equals((i + tableClean) + "m" + (j + tableClean))) {
-                countM++;
-            }
         }
+        System.out.println(countM);
         return countM;
     }
 
-    static void next(JButton b) {
-        int a = list.indexOf(b);
-        list.remove(a+1);
-        list.remove(a);
-        list.remove(a-1);
-
-        list.remove(a+21);
-        list.remove(a+20);
-        list.remove(a+19);
-
-        list.remove(a-21);
-        list.remove(a-20);
-        list.remove(a-19);
-//        for (int i = 0; i < 8; i++) {
-//            if (i < 3) {
-//               getNext(a,1);
-//            }
-//            if (i>2 && i <6){
-//                getNext(a,21);
-//            }
-//            if (i>5){
-//
-//            }
-//        }
-    }
-    static void getNext(int btn, int ln){
-        list.get(btn+ln).setVisible(false);
-        list.get(btn).setVisible(false);
-        list.get(btn-ln).setVisible(false);
-    }
-    static void test(JButton j){
-        while (j.getName().equals("m")){
-
-        }
-    }
 }
