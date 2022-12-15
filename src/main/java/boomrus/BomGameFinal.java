@@ -1,12 +1,13 @@
 package boomrus;
 
+import guistudy.TestFrame;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class BomGameFinal extends JFrame implements ActionListener, MouseListener {
     public static final int SCALE = 32;
@@ -14,10 +15,10 @@ public class BomGameFinal extends JFrame implements ActionListener, MouseListene
     public static final int HEIGHT = 20;
     private final int mineID = 999;
     private final JPanel jPanel = new JPanel();
-    private static ArrayList<JButton> list = new ArrayList<>();
+    private static final ArrayList<JButton> list = new ArrayList<>();
     public static int[][] table = new int[WIDTH][HEIGHT];
     public static int lvl = 0;
-    public static int tableClean = 1;
+    public static int tableClean = 1; // не лишняя, а сделана для !возможно! дополнительной реализации
     public static JButton button = new JButton("BOOM");
     public static JButton flagButton = new JButton(new ImageIcon("src/main/resources/iconFlag.png"));
     public static JButton button1 = new JButton(new ImageIcon("src/main/resources/1.png"));
@@ -27,7 +28,7 @@ public class BomGameFinal extends JFrame implements ActionListener, MouseListene
     public static JButton button5 = new JButton(new ImageIcon("src/main/resources/5.png"));
 
 
-    public BomGameFinal(){
+    public BomGameFinal() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(WIDTH * SCALE + 18, HEIGHT * SCALE + 80);
         setLocationRelativeTo(null);
@@ -103,33 +104,37 @@ public class BomGameFinal extends JFrame implements ActionListener, MouseListene
         System.out.println(list.indexOf(b));
         System.out.println(b.getName());
 
-        for (Iterator<JButton> iterator = list.iterator(); iterator.hasNext(); ) {
-            JButton n = iterator.next();
-
+        for (JButton n : list) {
             for (int i = 0; i <= table.length - 1; i++) {
                 for (int j = 0; j <= table[i].length - 1; j++) {
 
-                    if (n.equals(b) && b.getName().equals(i + "t" + j) && b.getIcon()== null) {
-test(i,j);
-//                        switch (findB(i,j)) {
-//
-//                            case 1 -> {
-//                                list.get(list.indexOf(b)).setIcon(button1.getIcon());
-//                            }
-//                            case 2 -> {
-//                                list.get(list.indexOf(b)).setIcon(button2.getIcon());
-//                            }
-//                            case 3 -> {
-//                                list.get(list.indexOf(b)).setIcon(button3.getIcon());
-//                            }
-//                            case 4 -> {
-//                                list.get(list.indexOf(b)).setIcon(button4.getIcon());
-//                            }
-//                            case 5 -> {
-//                                list.get(list.indexOf(b)).setIcon(button5.getIcon());
-//                            }
-//                        }
+                    if (n.equals(b) && b.getName().equals(i + "t" + j) && b.getIcon() == null) {
 
+                        switch (findB(i, j)) {
+                            case 0 -> {
+
+                                list.get(list.indexOf(b)).setVisible(false);
+                                list.get(list.indexOf(b) + 1).setVisible(false);
+                                list.get(list.indexOf(b) - 1).setVisible(false);
+                                //UP clean
+                                if (list.indexOf(b) - 20 > -1) {
+                                    list.get(list.indexOf(b) - 20).setVisible(false);
+                                    list.get(list.indexOf(b) - 21).setVisible(false);
+                                    list.get(list.indexOf(b) - 19).setVisible(false);
+                                }
+                                //DOWN clean
+                                list.get(list.indexOf(b) + 20).setVisible(false);
+                                list.get(list.indexOf(b) + 21).setVisible(false);
+                                list.get(list.indexOf(b) + 19).setVisible(false);
+
+                            }
+
+                            case 1 -> list.get(list.indexOf(b)).setIcon(button1.getIcon());
+                            case 2 -> list.get(list.indexOf(b)).setIcon(button2.getIcon());
+                            case 3 -> list.get(list.indexOf(b)).setIcon(button3.getIcon());
+                            case 4 -> list.get(list.indexOf(b)).setIcon(button4.getIcon());
+                            case 5 -> list.get(list.indexOf(b)).setIcon(button5.getIcon());
+                        }
 
 
                         break;
@@ -144,37 +149,6 @@ test(i,j);
         return (int) (Math.random() * 20);
     }
 
-    void tRemove(JButton b){
-//        System.out.println(list.get((list.indexOf(b) + 1) )+"\t"+list.get((list.indexOf(b) - 1) )+"\t"+list.get((list.indexOf(b)) )+"\t");
-//if (list.get(list.indexOf(b)+ 21)!= null && list.get(list.indexOf(b)- 21)!= null ) {
-//    jPanel.remove(list.get((list.indexOf(b) + 1)));
-//    jPanel.remove(list.get((list.indexOf(b) - 1)));
-//    jPanel.remove(list.get((list.indexOf(b))));
-//    // down
-//    jPanel.remove(list.get((list.indexOf(b) + 20)));
-//    jPanel.remove(list.get((list.indexOf(b) + 21)));
-//    jPanel.remove(list.get((list.indexOf(b)) + 19));
-//    //up
-//    jPanel.remove(list.get((list.indexOf(b) - 20)));
-//    jPanel.remove(list.get((list.indexOf(b) - 21)));
-//    jPanel.remove(list.get((list.indexOf(b) - 19)));
-//}
-
-
-    }
-
-    static void test(int i, int j){
-        for (JButton next : list) {
-
-            if (next.getName().equals(i + "m" + (j + tableClean))) {
-                System.out.println("+1m");
-            }
-            else if (next.getName().equals(i + "t" + (j + tableClean))){
-                next.setVisible(false);
-
-            }
-        }
-    }
     static int findB(int i, int j) {
 
         int countM = 0;
@@ -214,15 +188,6 @@ test(i,j);
         return countM;
     }
 
-//    void test(int i, int j){
-//
-//        for (JButton next : list){
-//            if (next.getName().equals((i) + "t" + (j + goLine))){
-//
-//
-//            }
-//        }
-//    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -232,35 +197,31 @@ test(i,j);
     @Override
     public void mousePressed(MouseEvent e) {
         JButton b = (JButton) e.getSource();
-        for (int i = 1; i < table.length; i++) {
-            for (int j = 0; j <table[i].length ; j++) {
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[i].length; j++) {
                 if (e.getButton() == MouseEvent.BUTTON3) {
 
-                if (b.getName().equals(i + "t" + j) && b.getIcon() ==null) {
-                    System.out.println("if1ONe");
-                    b.setIcon(flagButton.getIcon());
-                }else if (b.getIcon()== flagButton.getIcon() && b.getName().equals(i + "t" + j)) {
+                    if (b.getName().equals(i + "t" + j) && b.getIcon() == null) {
+                        System.out.println("if1ONe");
+                        b.setIcon(flagButton.getIcon());
+                    } else if (b.getIcon() == flagButton.getIcon() && b.getName().equals(i + "t" + j)) {
                         System.out.println("if3ONe");
                         b.setIcon(null);
+                    } else if (b.getName().equals(i + "m" + j) && b.getIcon() == null) {
+                        b.setIcon(flagButton.getIcon());
+                        System.out.println("if2ONe");
+                    } else if (b.getName().equals(i + "m" + j) && b.getIcon() == flagButton.getIcon()) {
+                        System.out.println("if4ONe");
+                        b.setIcon(null);
                     }
+                } else if (e.getButton() == MouseEvent.BUTTON1) {
+                    JFrame jFrame = new JFrame();
 
-               else if (b.getName().equals(i + "m" + j)&& b.getIcon() ==null) {
-                    b.setIcon(flagButton.getIcon());
-                    System.out.println("if2ONe");
+                    if (b.getName().equals(i + "m" + j) && b.getIcon() == null) {
+                        JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой, на в ебало!");
+                        System.exit(0);
+                    }
                 }
-                else if (b.getName().equals(i + "m" + j) && b.getIcon()== flagButton.getIcon()) {
-                    System.out.println("if4ONe");
-                    b.setIcon(null);
-                }
-            }
-//               else if (e.getButton() == MouseEvent.BUTTON1) {
-//                    JFrame jFrame= new JFrame();
-//
-//                    if (b.getName().equals(i + "m" + j) && b.getIcon() == null) {
-//                        JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой, на в ебало!");
-//                        System.exit(0);
-//                    }
-//                }
             }
 
 

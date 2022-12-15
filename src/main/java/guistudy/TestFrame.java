@@ -1,4 +1,4 @@
-package boomrus;
+package guistudy;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,7 +38,7 @@ public class TestFrame extends JFrame implements ActionListener {
     }
 
     void arraysFulling(int[][] arrays) {
-        for (int i = 1; i <= 80; i++) {
+        for (int i = 1; i <= 20; i++) {
             int a = posX();
             int b = posY();
 
@@ -57,7 +57,7 @@ public class TestFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("BOOM")) {
             button.setVisible(false);
-
+int count = 0;
             int yLength = 0;
             for (int i = 0; i <= table.length - 1; i++) {
 
@@ -65,7 +65,7 @@ public class TestFrame extends JFrame implements ActionListener {
                     if (table[i][j] == mineID) {
                         JButton jButton = new JButton(new ImageIcon("src/main/resources/mine.png"));
                         String strM = i + "m" + j;
-                        jButton.setName(strM);
+                        jButton.setName("m"+ count++);
                         jButton.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
                         jButton.addActionListener(this);
                         jPanel.add(jButton);
@@ -73,7 +73,7 @@ public class TestFrame extends JFrame implements ActionListener {
                     } else {
                         String str = i + "t" + j;
                         JButton jButton = new JButton();
-                        jButton.setName(str);
+                        jButton.setName(String.valueOf(count++));
                         jButton.setBounds(j * SCALE, yLength * SCALE, SCALE, SCALE);
                         jButton.addActionListener(this);
                         jPanel.add(jButton);
@@ -94,44 +94,105 @@ public class TestFrame extends JFrame implements ActionListener {
     }
 
     void tapToTable(JButton b) {
-        System.out.println(list.indexOf(b));
 
+        System.out.println(b.getName());
         for (Iterator<JButton> iterator = list.iterator(); iterator.hasNext(); ) {
             JButton n = iterator.next();
 
-            for (int i = 0; i <= table.length - 1; i++) {
-                for (int j = 0; j <= table[i].length - 1; j++) {
 
-                    if (n.equals(b) && b.getName().equals(i + "t" + j)) {
+            for (int i = 0; i < list.size(); i++) {
 
-                        switch (findB(i,j)) {
-                            case 1 -> {
-                                list.get(list.indexOf(b)).setIcon(button1.getIcon());
-                            }
-                            case 2 -> {
-                                list.get(list.indexOf(b)).setIcon(button2.getIcon());
-                            }
-                            case 3 -> {
-                                list.get(list.indexOf(b)).setIcon(button3.getIcon());
-                            }
-                            case 4 -> {
-                                list.get(list.indexOf(b)).setIcon(button4.getIcon());
-                            }
-                            case 5 -> {
-                                list.get(list.indexOf(b)).setIcon(button5.getIcon());
-                            }
+                if (n.equals(b) && b.getName().equals("t" + i)) {
+
+                    switch (findB(i,i)) {
+                        case 1 -> {
+                            list.get(list.indexOf(b)).setIcon(button1.getIcon());
                         }
-
-
-iterator.remove();
-                            break;
+                        case 2 -> {
+                            list.get(list.indexOf(b)).setIcon(button2.getIcon());
+                        }
+                        case 3 -> {
+                            list.get(list.indexOf(b)).setIcon(button3.getIcon());
+                        }
+                        case 4 -> {
+                            list.get(list.indexOf(b)).setIcon(button4.getIcon());
+                        }
+                        case 5 -> {
+                            list.get(list.indexOf(b)).setIcon(button5.getIcon());
+                        }
                     }
 
+
+                    iterator.remove();
+                    break;
                 }
             }
+
+
         }
     }
+    static void findList(int i){
+        list.forEach(button -> {
+//
+//                if (number(button,i)){
+//
+//                //up
+//
+//                // basic
+//
+//
+//                    //down
+//                }
+//                else if (button.getName().equals("m"+i)){
+//
+//                }
 
+
+
+//                boolean inBack = button.getName().equals(i + "t" + (j - 1));
+//                boolean in = button.getName().equals(i + "t" + j);
+//                boolean inNext = button.getName().equals(i + "t" + (j + 1));
+//                // to UP panel
+//                boolean inUPBack = button.getName().equals((i - 1) + "t" + (j - 1));
+//                boolean inUP = button.getName().equals((i - 1) + "t" + j);
+//                boolean inUPNext = button.getName().equals((i - 1) + "t" + (j + 1));
+//                //
+        });
+
+
+    }
+   static void number( int i, String name){
+//        String.valueOf(int i - 1 )
+//        boolean back = (int)i-1;
+       for (JButton tap : list) {
+           if (name.equals("next")) {
+               boolean next = tap.getName().equals("m" + (i + 1));
+           }
+           if (name.equals("back")) {
+               boolean back = tap.getName().equals("m" + (i - 1));
+           }
+               if (name.equals("UPnext")) {
+                   boolean UPnext = tap.getName().equals("m" + (i - 21));
+               }
+                   if (name.equals("UPthis")) {
+                       boolean UPthis = tap.getName().equals("m" + (i - 20));
+                   }
+                       if (name.equals("UPback")) {
+                           boolean UPback = tap.getName().equals("m" + (i - 19));
+                       }
+                           if (name.equals("DownN")) {
+                               boolean DownN = tap.getName().equals("m" + (i + 21));
+                           }
+                               if (name.equals("DownThis")) {
+                                   boolean DownThis = tap.getName().equals("m" + (i + 20));
+                               }
+                                   if (name.equals("DownB")) {
+           boolean DownB = tap.getName().equals("m" + (i + 21));
+}
+       }
+
+
+   }
 
 //    static class Action implements MouseListener {
 //        public Action(JButton button) {

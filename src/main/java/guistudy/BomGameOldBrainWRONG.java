@@ -1,4 +1,4 @@
-package boomrus;
+package guistudy;
 
 import javax.swing.*;
 import java.awt.*;

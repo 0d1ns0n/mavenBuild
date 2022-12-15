@@ -1,4 +1,4 @@
-package guiStudy;
+package guistudy;
 
 import javax.swing.*;
 import java.awt.*;

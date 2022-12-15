@@ -1,5 +1,6 @@
 package boomrus;
 
+import guistudy.BomGameOldBrainWRONG;
 import org.example.ProjectSnake;
 
 import javax.swing.*;
@@ -8,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
-public class Bomenu {
+public class BoMenu {
     public static Action action;
     public static Menu menu = new Menu();
     public static ChangeLevel changeLevel = new ChangeLevel();
