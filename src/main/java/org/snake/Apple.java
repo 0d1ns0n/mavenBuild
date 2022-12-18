@@ -1,4 +1,4 @@
-package org.example;
+package org.snake;
 
 public class Apple {
     public int posX;

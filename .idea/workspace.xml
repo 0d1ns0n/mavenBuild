@@ -5,24 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="910a31d2-c0bb-4893-98b4-7a3691707aba" name="Changes" comment="Mavd">
-      <change afterPath="$PROJECT_DIR$/src/main/java/guistudy/Brain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guistudy/Clean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guistudy/Window.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/guistudy/prolern/OneTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/BomNewBrain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/BrainButtons.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/GetPanelLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/abc.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/AnyTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SDRubludok.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/SDRubludok.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/BomGameFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/BomGameFinal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/BomGameOldBrainWRONG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guistudy/BomGameOldBrainWRONG.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/Bomenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/BoMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/MinerBrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guistudy/MinerBrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/TestArraysFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guistudy/TestArraysFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/TestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guistudy/TestFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/guiStudy/SimpleGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/guistudy/SimpleGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/BoMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/BoMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/boomrus/BomGameFinal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/BomGameNOTFinal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guistudy/BomGameOldBrainWRONG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/BomGameOldBrainWRONG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guistudy/Brain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guistudy/Clean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guistudy/MinerBrain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guistudy/SimpleGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guistudy/TestArraysFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/TestArraysFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guistudy/TestFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/TestFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guistudy/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Window.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/guistudy/prolern/OneTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Apple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/snake/Apple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ProjectSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/snake/ProjectSnake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/snake/Snake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/BomNewBrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/BomNewBrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/BrainButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/BrainButtons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/GetPanelLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/boomrus/GetPanelLogic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +74,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -90,13 +93,13 @@
       <recent name="boomrus" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Window">
-    <configuration name="BomNewBrain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.BomNewBrain" />
+  <component name="RunManager" selected="Application.ProjectSnake">
+    <configuration name="AnyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.AnyTest" />
       <module name="od1ns0n" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="test.*" />
+          <option name="PATTERN" value="boomrus.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -104,12 +107,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MinerBrain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="guistudy.MinerBrain" />
+    <configuration name="Anytest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Anytest" />
       <module name="od1ns0n" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="guistudy.*" />
+          <option name="PATTERN" value="boomrus.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -117,12 +120,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OneTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="guistudy.prolern.OneTest" />
+    <configuration name="BoMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="boomrus.BoMenu" />
       <module name="od1ns0n" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="guistudy.prolern.*" />
+          <option name="PATTERN" value="boomrus.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -131,11 +134,11 @@
       </method>
     </configuration>
     <configuration name="ProjectSnake" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.ProjectSnake" />
+      <option name="MAIN_CLASS_NAME" value="org.snake.ProjectSnake" />
       <module name="od1ns0n" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.snake.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -144,11 +147,11 @@
       </method>
     </configuration>
     <configuration name="Window" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="guistudy.Window" />
+      <option name="MAIN_CLASS_NAME" value="test.Window" />
       <module name="od1ns0n" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="guistudy.*" />
+          <option name="PATTERN" value="boomrus.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -158,11 +161,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Window" />
-        <item itemvalue="Application.MinerBrain" />
-        <item itemvalue="Application.BomNewBrain" />
-        <item itemvalue="Application.OneTest" />
         <item itemvalue="Application.ProjectSnake" />
+        <item itemvalue="Application.BoMenu" />
+        <item itemvalue="Application.AnyTest" />
+        <item itemvalue="Application.Anytest" />
+        <item itemvalue="Application.Window" />
       </list>
     </recent_temporary>
   </component>
@@ -234,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670537095936</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Mavd">
+      <created>1671107569717</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1671107569717</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

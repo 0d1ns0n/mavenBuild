@@ -1,4 +1,4 @@
-package org.example;
+package org.snake;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,7 +45,7 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
     }
 
     public static void frm() {
-        jFrame = new JFrame("Твоя любимая игра");
+        jFrame = new JFrame("You love it game");
 
         jFrame.setSize(WIDTH * SCALE + 16, HEIGHT * SCALE + 6);
 
@@ -140,13 +140,13 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
             if (snake.snakeY[0] == snake.snakeY[i] && snake.snakeX[0] == snake.snakeX[i]) {
                 HP--;
                 if (HP == 2) {
-                    JOptionPane.showMessageDialog(this, "ОСТАЛОСЬ ДВЕ ПОПЫТКИ КРИВОРУКИЙ ДЫБИЛ", "ТЫ ДОЛБОЕБ", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "You have two chanse, or die", "2 LIFE", JOptionPane.INFORMATION_MESSAGE);
                 }
                 if (HP == 1) {
-                    JOptionPane.showMessageDialog(this, "БОЖЕ КАКОЙ ТЫ ИДИОТ, У ТЕБЯ ОСТАЛАСЬ ОДНА ПОПЫТКА", "ТЫ ДОЛБОЕБ, СОБЕРИСЬ!", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "You have one chanse, or really die", "1 LIFE", JOptionPane.INFORMATION_MESSAGE);
                 }
                 if (HP == 0) {
-                    JOptionPane.showMessageDialog(this, "ПОПЫТОК БОЛЬШЕ НЕТ, ИДИ НАХУЙ", "ТЫ ДОЛБОЕБ", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Good game, but not you!", "END y road", JOptionPane.INFORMATION_MESSAGE);
                     System.exit(0);
                 }
                 snake.length = 2;
@@ -178,7 +178,7 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
 
     static class ChangeFrame extends JFrame {
         public ChangeFrame() {
-            setTitle("Выбери уровень кусок ты говна");
+            setTitle("Change level menu");
             setSize(400, 300);
             setResizable(false);
             setLocationRelativeTo(null);
@@ -190,9 +190,9 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
         }
 
         static class changePanel extends Panel {
-            public static Button easy = new Button("Я мамкинка зайка");
-            public static Button medium = new Button("Ходил в качалку разок");
-            public static Button hard = new Button("Могу наебашить твоему бате");
+            public static Button easy = new Button("I am a little pony");
+            public static Button medium = new Button("Mommy won't help you");
+            public static Button hard = new Button("You can do it son!");
 
             public changePanel() {
                 action esAct = new action(easy);
@@ -242,7 +242,7 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
 
         public MyButtonFrame() {
 
-            setTitle("Это самое главное меню, та и ебать тебя это не должно, какое это меню");
+            setTitle("This is the main menu.");
             setSize(800, 800);
             MyButtonPanel panel = new MyButtonPanel();
             add(panel);
@@ -253,9 +253,9 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
         static class MyButtonPanel extends Panel {
 
             public MyButtonPanel() {
-                Button bButton = new Button("Поехали");
-                Button exitButton = new Button("Я дыбил");
-                Button changeLvl = new Button("Выбери сложность");
+                Button bButton = new Button("Let's go");
+                Button exitButton = new Button("NO, i am a scared");
+                Button changeLvl = new Button("Change hard level");
 
 
                 MyButtonPanel.MyListenerAction bAction = new
@@ -281,7 +281,6 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
             private class MyListenerAction implements ActionListener {
                 public MyListenerAction(Color c) {
                     bColor = c;
-
                 }
 
                 public void actionPerformed(ActionEvent event) {

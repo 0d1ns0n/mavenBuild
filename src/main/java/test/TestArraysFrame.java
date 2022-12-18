@@ -1,4 +1,4 @@
-package guistudy;
+package test;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

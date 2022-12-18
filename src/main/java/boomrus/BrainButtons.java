@@ -1,4 +1,4 @@
-package test;
+package boomrus;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,7 +14,6 @@ public class BrainButtons extends JFrame implements ActionListener, MouseListene
     public static final int mineID = 999;
     public static JPanel jPanel = new JPanel();
     public static final ArrayList<JButton> list = new ArrayList<>();
-    //    public static LinkedList<JButton> list = new LinkedList<>();
     public static int[][] table = new int[WIDTH][HEIGHT];
     public static int lvl = 20;
     public static JButton button = new JButton("BOOM");
@@ -47,15 +46,14 @@ public class BrainButtons extends JFrame implements ActionListener, MouseListene
                     jButton.addMouseListener(this);
                     jPanel.add(jButton);
                     list.add(jButton);
-                    System.out.print("\t" + list.indexOf(jButton));
                 }
-                System.out.println();
+
             }
         } else {
             GetPanelLogic.tapToTable((JButton) e.getSource());
 
         }
-        BomNewBrain.jFrame.repaint();
+        jPanel.repaint();
     }
 
     @Override
@@ -66,26 +64,29 @@ public class BrainButtons extends JFrame implements ActionListener, MouseListene
     @Override
     public void mousePressed(MouseEvent e) {
         JButton b = (JButton) e.getSource();
-        for (int i = 0; i < list.size(); i++) {
 
-            if (e.getButton() == MouseEvent.BUTTON3) {
+
+        if (e.getButton() == MouseEvent.BUTTON3) {
+            for (int i = 0; i < list.size(); i++) {
                 if (b.getName().equals("" + i) && b.getIcon() == null) {
                     b.setIcon(flagButton.getIcon());
                 } else if (b.getIcon() == flagButton.getIcon() && b.getName().equals("" + i)) {
                     b.setIcon(null);
-                } else if (b.getName().equals("m") && b.getIcon() == null) {
-                    b.setIcon(flagButton.getIcon());
-                } else if (b.getName().equals("m") && b.getIcon() == flagButton.getIcon()) {
-                    b.setIcon(null);
                 }
+            }
 
-            } else if (e.getButton() == MouseEvent.BUTTON1) {
+            if (b.getName().equals("m") && b.getIcon() == null) {
+                b.setIcon(flagButton.getIcon());
+            } else if (b.getName().equals("m") && b.getIcon() == flagButton.getIcon()) {
+                b.setIcon(null);
+            }
 
-                JFrame jFrame = new JFrame();
-                if (b.getName().equals("m") && b.getIcon() == null) {
-                    JOptionPane.showMessageDialog(jFrame, "ОПА! ну шо ты дорогой, на в ебало!");
-                    System.exit(0);
-                }
+        } else if (e.getButton() == MouseEvent.BUTTON1) {
+
+            JFrame jFrame = new JFrame();
+            if (b.getName().equals("m") && b.getIcon() == null) {
+                JOptionPane.showMessageDialog(jFrame, "Sorry, YOU LOST!");
+                System.exit(0);
             }
         }
     }

@@ -1,6 +1,4 @@
-package boomrus;
-
-import guistudy.TestFrame;
+package test;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -9,7 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-public class BomGameFinal extends JFrame implements ActionListener, MouseListener {
+public class BomGameNOTFinal extends JFrame implements ActionListener, MouseListener {
     public static final int SCALE = 32;
     public static final int WIDTH = 20;
     public static final int HEIGHT = 20;
@@ -28,7 +26,7 @@ public class BomGameFinal extends JFrame implements ActionListener, MouseListene
     public static JButton button5 = new JButton(new ImageIcon("src/main/resources/5.png"));
 
 
-    public BomGameFinal() {
+    public BomGameNOTFinal() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(WIDTH * SCALE + 18, HEIGHT * SCALE + 80);
         setLocationRelativeTo(null);

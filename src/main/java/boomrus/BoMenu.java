@@ -1,7 +1,7 @@
 package boomrus;
 
-import guistudy.BomGameOldBrainWRONG;
-import org.example.ProjectSnake;
+import org.snake.ProjectSnake;
+import test.BomGameOldBrainWRONG;
 
 import javax.swing.*;
 import java.awt.*;
@@ -140,7 +140,7 @@ public class BoMenu {
             if (tap == Menu.jButtonS) {
                 menu.setVisible(false);
 
-                JFrame game = new BomGameFinal();
+                JFrame game = new BomNewBrain();
                 game.setVisible(true);
                 jFrame.setVisible(false);
             }
@@ -167,20 +167,20 @@ public class BoMenu {
                 System.exit(0);
             }
             if (tap == ChangeLevel.es) {
-                BomGameFinal.lvl = 20;
+                BrainButtons.lvl = 20;
                 changeLevel.setVisible(false);
                 menu.setVisible(true);
                 jFrame.setTitle("Menu");
 
             }
             if (tap == ChangeLevel.med) {
-                BomGameFinal.lvl = 50;
+                BrainButtons.lvl = 50;
                 changeLevel.setVisible(false);
                 menu.setVisible(true);
                 jFrame.setTitle("Menu");
             }
             if (tap == ChangeLevel.hard) {
-                BomGameFinal.lvl = 80;
+                BrainButtons.lvl = 80;
                 changeLevel.setVisible(false);
                 menu.setVisible(true);
                 jFrame.setTitle("Menu");

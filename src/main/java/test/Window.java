@@ -1,38 +1,56 @@
-package guistudy;
+package test;
+
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.util.Timer;
+import java.util.*;
+
 
 public class Window extends JFrame implements ActionListener {
-    private static JPanel j = new JPanel();
+    private static final JPanel j = new JPanel();
     public static ArrayList<JButton> list = new ArrayList<>();
-    private static int[][] table = new int[20][20];
+    private static final int[][] table = new int[20][20];
     private static final int S = 32;
     private static final int W = 20;
     private static final int H = 20;
-    private static int lvl = 20;
-    public JButton start = new JButton("go");
+    private static final int lvl = 20;
+    public static JButton start = new JButton("go");
     public JButton jButton;
+    public Timer timer = new Timer();
+    public JFrame jFrame= new JFrame();
+    public static Random random = new Random();
 
     public Window() {
         setTitle("menu");
-        setSize(W * S + 52, H * S + 80);
+        setSize(W * S + 16, H * S + 110);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         start.addActionListener(this);
         j.setLayout(null);
-        start.setBounds(340, 650, 70, 30);
+        start.setBounds(320 -25, 640, 70, 90);
         j.add(start);
         add(j);
         fulling(table);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("go")) {
-            start.setVisible(false);
+
+            start.setText(null);
+
+timer.schedule(new TimerTask() {
+    @Override
+    public void run() {
+
+        start.setLocation(random.nextInt(650),random.nextInt(650));
+
+    }
+}, 5000,3000);
+//            start.setVisible(false);
             int count = 0;
             for (int i = 0; i < table.length; i++) {
                 for (int k = 0; k < table[i].length; k++) {
@@ -41,7 +59,7 @@ public class Window extends JFrame implements ActionListener {
                         jButton = new JButton();
                         jButton.setName("" + count++);
                     } else {
-                        jButton = new JButton(new ImageIcon("src/main/resources/mine.png"));
+                        jButton = new JButton(img("mine"));
                         jButton.setName("m");
                     }
 
@@ -54,21 +72,31 @@ public class Window extends JFrame implements ActionListener {
                 System.out.println();
             }
         } else {
-            tap((JButton) e.getSource());
+            tapToTable((JButton) e.getSource());
 
         }
         repaint();
     }
 
-    void tap(JButton bb) {
-        System.out.println(list.indexOf(bb) +"   index  INFO FOR TAPED");
-//        System.out.println(bb.getName()+"name  INFO FOR TAPED");
-        for (int i = 0; i < list.size(); i++) {
+    static void tapToTable(JButton bb) {
 
 
+        for (int i = 0; i < list.size() - 1; i++) {
             for (JButton b : list) {
-                if (bb.equals(b) && b.getName().equals("" + i)) {
+
+                if (b.equals(bb) && bb.getName().equals("" + i) && bb.getIcon() == null) {
                     clear(b);
+                    switch (clear(b)) {
+                        case 0 -> {
+                            // в реализации
+                        }
+                        case 1 -> list.get(list.indexOf(b)).setIcon(img("1"));
+                        case 2 -> list.get(list.indexOf(b)).setIcon(img("2"));
+                        case 3 -> list.get(list.indexOf(b)).setIcon(img("3"));
+                        case 4 -> list.get(list.indexOf(b)).setIcon(img("4"));
+                        case 5 -> list.get(list.indexOf(b)).setIcon(img("5"));
+                    }
+                    break;
                 }
             }
         }
@@ -147,25 +175,14 @@ public class Window extends JFrame implements ActionListener {
         return countM;
     }
 
-    static JButton find(JButton b, int i) {
-        int countM = 0;
-        boolean var = b.getName().equals("m");
-        b = list.get(list.indexOf(i));
-        int v = list.indexOf(b);
-        for (JButton next : list) {
-
-
-        }
-        return b;
-    }
 
 
     static void fulling(int[][] arrays) {
         int count = 0;
         for (int i = 0; i < arrays.length; i++) {
             for (int k = 0; k < arrays[i].length; k++) {
-                int a = rand();
-                int b = rand();
+                int a = (int) (Math.random() * 20);
+                int b = (int) (Math.random() * 20);
                 if (arrays[a][b] == 0 && count <= lvl) {
                     arrays[a][b] = 999;
                     count++;
@@ -176,15 +193,14 @@ public class Window extends JFrame implements ActionListener {
         }
     }
 
-
-    static int rand() {
-
-        return (int) (Math.random() * 20);
+    static ImageIcon img(String res){
+        return new ImageIcon(Objects.requireNonNull(Window.class.getResource("/resources/"+res+".png")));
     }
 
     public static void main(String[] args) {
         JFrame jFrame = new Window();
         jFrame.setVisible(true);
+
     }
 }
 

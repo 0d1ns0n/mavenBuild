@@ -72,7 +72,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>org.example.ProjectSnake</mainClass>
+                            <mainClass>org.snake.ProjectSnake</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
