@@ -1,4 +1,6 @@
-package org.snake;
+package org.snake.obj;
+
+import org.snake.ProjectSnake;
 
 public class Apple {
     public int posX;

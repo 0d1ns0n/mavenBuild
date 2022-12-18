@@ -192,7 +192,7 @@ public class BoMenu {
         private final JButton tap;
     }
 
-    static Image img(String file) {
+     static Image img(String file) {
         return new ImageIcon(Objects.requireNonNull(ProjectSnake.class.getResource(file))).getImage();
     }
 

@@ -1,5 +1,8 @@
 package org.snake;
 
+import org.snake.obj.Apple;
+import org.snake.obj.Snake;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,41 +14,38 @@ import java.util.Objects;
 public class ProjectSnake extends JPanel implements ActionListener {
 
 
-final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
-    final ImageIcon snakeBody =img("/resources/snakeBody.png");
-    final ImageIcon snakeHead =img("/resources/snakeHead.png");
-    final ImageIcon fon =img("/resources/dashanew.png");
-    final ImageIcon snakeHeadRight =img("/resources/snakeHeadRight.png");
-    final ImageIcon snakeBodyRight =img("/resources/snakeBodyRight.png");
-    final ImageIcon snakeBodyLeft=img("/resources/snakeBodyLeft.png");
-    final ImageIcon snakeHeadLeft=img("/resources/snakeHeadLeft.png");
-    final ImageIcon snakeHeadDown=img("/resources/snakeHeadDown.png");
-    final ImageIcon snakeBodyDown=img("/resources/snakeBodyDown.png");
+    final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
+    final ImageIcon snakeBody = img("/resources/snakeBody.png");
+    final ImageIcon snakeHead = img("/resources/snakeHead.png");
+    final ImageIcon fon = img("/resources/dashanew.png");
+    final ImageIcon snakeHeadRight = img("/resources/snakeHeadRight.png");
+    final ImageIcon snakeBodyRight = img("/resources/snakeBodyRight.png");
+    final ImageIcon snakeBodyLeft = img("/resources/snakeBodyLeft.png");
+    final ImageIcon snakeHeadLeft = img("/resources/snakeHeadLeft.png");
+    final ImageIcon snakeHeadDown = img("/resources/snakeHeadDown.png");
+    final ImageIcon snakeBodyDown = img("/resources/snakeBodyDown.png");
 
 
-    public static JFrame jFrame;
-    public static int HP = 3;
     public static final int SCALE = 32; // шкала пискселей, размер клетки
     public static final int WIDTH = 20; // ширина
     public static final int HEIGHT = 20;// высота
 
 
+    public static int HP = 3;
     public Snake snake = new Snake(5, 6, 5, 5);
     public Apple applePos = new Apple(8, 2);
-
-    public static int speed = 10;
+    public static int speed = 0;
     public Timer timer = new Timer(1000 / speed, this);
-    public static MyButtonFrame myButtonFrame = new MyButtonFrame();
-    public static ChangeFrame changeFrame = new ChangeFrame();
 
-    public ProjectSnake(){
+
+    public ProjectSnake() {
         timer.start();
         addKeyListener(new KeyB());
         setFocusable(true);
     }
 
     public static void frm() {
-        jFrame = new JFrame("You love it game");
+        JFrame jFrame = new JFrame("You love it game");
 
         jFrame.setSize(WIDTH * SCALE + 16, HEIGHT * SCALE + 6);
 
@@ -60,11 +60,6 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
         jFrame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        myButtonFrame.setVisible(true);
-        myButtonFrame.setLocationRelativeTo(null);
-        myButtonFrame.setResizable(false);
-    }
 
     @Override
     public void paint(Graphics g) {
@@ -154,7 +149,8 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
         }
         repaint();
     }
-    public class KeyB extends KeyAdapter {
+
+    private class KeyB extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
             int k = e.getKeyCode();
@@ -172,136 +168,10 @@ final ImageIcon apple = img("/resources/icons8-яблоко-48.png");
             }
         }
     }
-    static ImageIcon img (String name){
+
+    private ImageIcon img(String name) {
         return new ImageIcon(Objects.requireNonNull(ProjectSnake.class.getResource(name)));
     }
 
-    static class ChangeFrame extends JFrame {
-        public ChangeFrame() {
-            setTitle("Change level menu");
-            setSize(400, 300);
-            setResizable(false);
-            setLocationRelativeTo(null);
-            changePanel changePanel = new changePanel();
-            add(changePanel);
 
-
-
-        }
-
-        static class changePanel extends Panel {
-            public static Button easy = new Button("I am a little pony");
-            public static Button medium = new Button("Mommy won't help you");
-            public static Button hard = new Button("You can do it son!");
-
-            public changePanel() {
-                action esAct = new action(easy);
-                action mAct = new action(medium);
-                action hAct = new action(hard);
-                easy.addActionListener(esAct);
-                medium.addActionListener(mAct);
-                hard.addActionListener(hAct);
-
-                setLayout(new BorderLayout());
-                JLabel back = new JLabel(new ImageIcon(Objects.requireNonNull(ProjectSnake.class.getResource("/resources/snakeMenu.png"))));
-                back.setLayout(new FlowLayout());
-                back.add(easy);
-                back.add(medium);
-                back.add(hard);
-                add(back);
-
-            }
-
-            private static class action implements ActionListener {
-                public action(Button b) {
-                    tap = b;
-                }
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (tap == easy) {
-                        speed = 2;
-                        changeFrame.setVisible(false);
-                    }
-                    if (tap == medium) {
-                        speed = 6;
-                        changeFrame.setVisible(false);
-                    }
-                    if (tap == hard) {
-                        speed = 12;
-                        changeFrame.setVisible(false);
-                    }
-                }
-
-                private final Button tap;
-            }
-        }
-    }
-
-    static class MyButtonFrame extends JFrame {
-
-        public MyButtonFrame() {
-
-            setTitle("This is the main menu.");
-            setSize(800, 800);
-            MyButtonPanel panel = new MyButtonPanel();
-            add(panel);
-            setVisible(true);
-        }
-
-
-        static class MyButtonPanel extends Panel {
-
-            public MyButtonPanel() {
-                Button bButton = new Button("Let's go");
-                Button exitButton = new Button("NO, i am a scared");
-                Button changeLvl = new Button("Change hard level");
-
-
-                MyButtonPanel.MyListenerAction bAction = new
-                        MyButtonPanel.MyListenerAction(Color.blue);
-                MyButtonPanel.MyListenerAction exitAction = new
-                        MyButtonPanel.MyListenerAction(Color.black);
-                MyListenerAction change = new MyListenerAction(Color.pink);
-
-
-                bButton.addActionListener(bAction);
-                exitButton.addActionListener(exitAction);
-                changeLvl.addActionListener(change);
-
-                setLayout(new BorderLayout());
-                JLabel back = new JLabel(new ImageIcon(Objects.requireNonNull(ProjectSnake.class.getResource("/resources/snakeMenu.png"))));
-                back.setLayout(new FlowLayout());
-                back.add(bButton);
-                back.add(changeLvl);
-                back.add(exitButton);
-                add(back);
-            }
-
-            private class MyListenerAction implements ActionListener {
-                public MyListenerAction(Color c) {
-                    bColor = c;
-                }
-
-                public void actionPerformed(ActionEvent event) {
-
-                    repaint();
-                    if (bColor == Color.BLACK) {
-                        System.exit(0);
-                    }
-                    if (bColor == Color.blue) {
-                        myButtonFrame.setVisible(false);
-                        frm();
-                    }
-                    if (bColor == Color.pink) {
-                        changeFrame.setVisible(true);
-                    }
-                }
-
-                private final Color bColor;
-
-            }
-
-        }
-    }
 }
